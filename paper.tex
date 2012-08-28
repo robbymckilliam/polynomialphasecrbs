@@ -1,0 +1,293 @@
+%\documentclass[draftcls, onecolumn, 11pt]{../../bib/IEEEtran}
+\documentclass[journal,10pt]{IEEEtran}
+
+\usepackage{mathbf-abbrevs}
+
+\input{defs}
+
+\begin{document}
+
+\title{On the Cram\'{e}r-Rao bound for polynomial phase signals}
+
+\author{Robby McKilliam and Andr\'{e} Pollok%
+\thanks{Supported under the Australian Government's Australian Space Research Program.
+Robby McKilliam and Andr\'{e} Pollok are with the Institute for Telecommunications Research, The University of South Australia, SA, 5095}
+}
+% The paper headers
+\markboth{Robby McKilliam and Andre Pollock, On the Cram\'{e}r-Rao bound for polynomial phase signals}%
+{DRAFT \today}
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Polynomial-phase signals have numerous applications including radar, sonar, geophysics, and radio communication.  Of particular importance is the estimation of the parameters of a polynomial phase signal from a sequence of noisy observations.  Assuming that the noise is additive and Gaussian,  Peleg and Porat approximated the Cram\'{e}r-Rao bound for this estimation problem.  The approximation is accurate when the number of observations is sufficiently larger than the order of the polynomial phase signal.  In this paper we derive closed form formula for the exact Cram\'{e}r-Rao bounds.  This is achieved by making use of a family of orthogonal polynomials.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Polynomial-phase signals, Cram\'{e}r-Rao bound.
+\end{IEEEkeywords}
+
+
+
+\section{Introduction}
+
+A uniformly sampled, constant amplitude, polynomial-phase signal of order $m$ has the model~\cite{Peleg_DPT_1995, Peleg1991_CRB_PPS_1991, Peleg1991_est_class_PPS_1991, Rihaczek1996},
+\[
+s_n(b) = \alpha \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
+\]
+where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), $b=(b_0, \dots, b_m)$ is a vector containing the polynomial coefficients, $j = \sqrt{-1}$ and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
+
+Polynomial-phase signals have numerous applications including radar, sonar, geophysics, and radio communication~\cite{Angeby_estimating_2000}.  The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995}.  Of practical importance is the estimation of the coefficients $\beta = (\beta_0, \dots \beta_m)$ from $N$ consecutive samples $y_1, \dots. y_N$ where 
+\[
+y_n = s_n(\beta) + w_n
+\]
+and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Peleg_DPT_1995, Angeby_estimating_2000, Djuric_phase_unwrap_chirp_1990, Oshea_iterative_1996, Barbarossa_analysis_of_PPS_1997, Slocumb_polynomial_1994, Morelande_bayes_unwrapping_2008, Kitchen_polyphase_unwrapping_1994}.
+
+Under the assumption that $\{w_n\}$ are additive white and Gaussian, Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} have derived the Cram\'{e}r-Rao lower bound for unbiased estimators of the coefficients $\beta$.  Their approach requires the inversion of a poorly conditioned Fisher information matrix.  To avoid this, they provide an approximation that is valid when the number of observations $N$ is much larger than the order of the polynomial phase signal $m$.  Here we remove the need for this approximation.  By converting the polynomial basis to one that is orthogonal we derive closed form formula for the inverse Fisher information matrix.  This leads to closed form formula for the Cram\'{e}r-Rao bounds.  %At the same time we tie together some existing literature on the Cram\'{e}r-Roa bound for polynomial phase signals~\cite{Peleg1991_CRB_PPS_1991,Ristic_crbpelegcomment_1998}.
+
+The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fisher information matrix in a similar way to Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  The matrix is poorly conditioned and inverting it to obtain the Cram\'{e}r-Rao bound is difficult.  In Section~\ref{sec:changing-basis} we describe some general results regarding changing the basis in which a polynomial phase signal may be represented.  We describe the Fisher information matrix corresponding with a chosen basis and we relate the matrices between two bases.  In Section~\ref{sec:discr-orth-polyn} we introduce the family of discrete orthogonal polynomials.  By transforming into this basis, the corresponding Fisher information matrix becomes diagonal, making matrix inversion simple.  This leads directly to closed form expressions for the Cram\'{e}r-Rao bounds.  To keep our derivation simple we initially assume that the amplitude $\alpha$ is a fixed constant, and not a parameter to be estimated.  However, including the amplitude is straightforward, and we do this in Section~\ref{sec:including-amplitude}.  Section~\ref{sec:simuations} presents the results of Monte-Carlo simulations, these are in agreement with our exact bounds.
+
+
+\section{The Cram\'{e}r-Rao bound} \label{sec_crb}
+
+We make the assumption that the noise sequence $\{ w_n \}$ is independent and identically distributed complex Gaussian, each element having independent real and imaginary parts with zero mean and variance $\sigma^2$.  The probability density function of $w_n$ is 
+\[
+p(x) = \frac{1}{4 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
+\]
+where $\abs{x}^2$ is the squared magnitude of the complex number $x$.  We wish to estimate $\beta$ from $y_1, \dots, y_N$.  The likelihood function is
+\[
+L(b) =  \frac{1}{(4 \pi \sigma^2)^N} \exp\left( - \frac{1}{2\sigma^{2}} \sum_{n=1}^N \abs{y_n -  s_n(b) }^2 \right).
+\]
+%The maximum likelihood estimators of $\alpha, \beta_0, \dots, \beta_m$ are the maximisers of $L$.
+% , that is
+% \[
+% (\hat{\alpha}, \hat{\beta}_0, \dots, \hat{\beta}_m) = \arg\max_{a \in \reals, (b_0, \dots, b_m) \in B} L(a, b_0, \dots, b_m) 
+% \]  
+% where $B \subset \reals^{m+1}$ describes a region of polynomial phase coefficients for which the estimation problem is identifiable~\cite{McKilliam2009IndentifiabliltyAliasingPolyphase,McKilliam_LSU_polyest_part1_2012}.  We assume that $(\beta_0, \dots, \beta_m) \in B$.
+For $i,k \in \{0, \dots, m\}$ define functions 
+\[
+f_{ik}(b) = f_{ki}(b) = -\expect \frac{ \partial^2 \log L(b) }{ \partial b_{i} \partial b_{k}}.
+\]  
+The Fisher information matrix $F$ is the $m+1$ by $m+1$ matrix with elements $F_{i k} = f_{ik}(\beta)$.  The elements are
+\[
+F_{ik} = F_{ki} = \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} n^{i}n^{k}.
+\]
+
+Let $\hat{\beta}$ be an unbiased estimator of $\beta$.  The Cram\'{e}r-Rao bound asserts:  If $C$ is the covariance matrix of $\hat{\beta}$, then $C - F^{-1}$ is positive semidefinite where $F^{-1}$ is the inverse of $F$.  The diagonal elements of a positive semidefinite matrix are nonnegative so $C_{ii} \geq F^{-1}_{ii}$ and correspondingly, 
+\[
+C_{ii} = \var \hat{\beta}_{i} \geq F_{ii}^{-1}, \qquad i=0,\dots,m.
+\]  
+Be aware that $F_{ik}^{-1}$ is the $ik$th element of the inverse matrix $F^{-1}$.  It is not the reciprocal of $F_{ik}$.  Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} found that $F$ is poorly conditioned and for this reason $F^{-1}$ is difficult to compute.  They give an approximation that is accurate when $N$ is sufficiently larger than $m$.  We will circumvent this problem by applying a change of basis to the polynomial coefficients $\beta$.  This will lead to closed form formula for $F^{-1}$.  
+
+
+\section{Changing the basis}\label{sec:changing-basis}
+
+\newcommand{\calP}{{\mathcal P}}
+
+For a polynomial $g(x) = b_0 + b_1 x + \dots + b_m x^m$ of order at most $m$ denote by $\coef(g) = (b_0, b_1, \dots, b_m)$ the vector of length $m+1$ containing its coefficients.  Let $p_0, \dots, p_m$ be a family of linearly independent polynomials.  By linearly independent it is meant that any polynomial of order at most $m$ can be written as a linear combination $c_0p_0 + c_1 p_1 + \dots + c_m p_m$ where $c_1, \dots, c_m$ are real numbers.  Observe that $p_0, \dots, p_m$ are linearly independent if and only if the vectors $\coef(p_0), \dots, \coef(p_m)$ are linearly independent.  We call $p_0, \dots, p_m$ a \emph{basis} for the space of polynomials of order $m$.  We call the polynomials $n^0, n^1, \dots, n^m$ the \emph{standard basis}.  
+
+Let 
+\[
+P = \left( \begin{array}{c}
+\coef(p_0) \\
+\vdots \\
+\coef(p_m)
+\end{array} \right)
+\] 
+be the $m+1$ by $m+1$ matrix with $k$th row $\coef(p_k)$.  If
+\[
+b_0 + b_1 x + \dots + b_m x^m = c_0 p_0(x) + \dots + c_m p_m(x)
+\]
+then the relationship between the vectors $b =  (b_0, \dots, b_m)$ and $c =  (c_0, \dots, c_m)$ is $b = cP$.  Since $P$ is invertible we also have $c = bP^{-1}$.
+
+Put,
+\[
+r_n(c) = \alpha \exp\left( j \sum_{k = 0}^{m}{c_k p_k(n)}\right)
+\]
+so that $r_n(c)$ is a polynomial phase signal expressed in terms of the basis $p_0, \dots, p_m$.  Correspondingly $s_n(b)$ is a polynomial phase expressed in terms of the standard basis $n^0, n^1, \dots, n^m$.  The two signals are related by
+\[
+r_n(c) = s_n(cP) = s_n(b).
+\]
+The observed samples $y_1,\dots,y_N$ can be written using $r_n$ as
+\[
+y_n = r_n(\gamma) + w_n = s_n(\gamma P) + w_n
+\]
+where $\beta = \gamma P$.  We can now consider the problem of estimating $\gamma$ instead of $\beta$.  If $\hat{\beta}$ is an estimator of $\beta$ then the corresponding estimator of $\gamma$ is $\hat{\gamma} = \hat{\beta}P^{-1}$.  If $C$ is the covariance of $\hat{\beta}$ then the covariance of $\hat{\gamma}$ is $(P^{-1})^\prime C P^{-1}$ where $^\prime$ is the transpose.
+
+The likelihood function for $\gamma$ is 
+\[
+L_\gamma(c) = L(cP) = L(b)
+\] 
+and we can compute the corresponding Fisher information matrix.  It is found to be the $m+1$ by $m+1$ matrix $H$ with elements
+\[
+H_{ik} = H_{ki} = \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} p_{i}(n) p_{k}(n).
+\]
+The Cram\'{e}r-Rao bound for $\gamma$ is found by taking the inverse of $H$.  The next lemma relates the two Fisher information matrices $H$ and $F$.
+
+\begin{lemma}
+Suppose we desire to estimate $\beta \in \reals^m$ and that $L(b)$ is the corresponding likelihood function and $F$ the corresponding $m \times m$ Fisher information matrix.  Let $P$ be an $m \times m$ invertible matrix and $\gamma \in \reals^m$ be such that $\beta = \gamma P$.  Then the likelihood function corresponding to $\gamma$ is $L_\gamma(c) = L(cP)$ and the corresponding Fisher information matrix is $H = P F P^\prime$. 
+\end{lemma}
+\begin{IEEEproof}
+Put $b = cP$.  That $L_\gamma(c) = L(cP) = L(b)$ is plain.  The elements $F_{ik} = f_{ik}(\beta)$ where
+\[
+f_{ik}(b) = -\expect \frac{\partial \log L(b)}{\partial b_i \partial b_k}.
+\]
+The elements $H_{ik} = h_{ik}(\gamma)$ where
+\[
+h_{ik}(c) = -\expect \frac{\partial \log L_\gamma(c)}{\partial c_i \partial c_k} =  -\expect \frac{\partial \log L(cP)}{\partial c_i \partial c_k}.
+\]
+Since $\frac{\partial b_s}{\partial c_i} = P_{is}$ applying the chain rule yields
+\begin{align*}
+h_{ik}(c) &= -\expect \sum_{s=0}^{m-1} P_{is}\frac{\partial \log L(cP)}{\partial b_s \partial c_k} \\
+&= -\expect \sum_{s=0}^{m-1}\sum_{t=0}^{m-1} P_{is} P_{kt}   \frac{\partial \log L(b)}{\partial b_s \partial b_t} \\
+&= \sum_{s=0}^{m-1}\sum_{t=0}^{m-1} P_{is} P_{kt}  f_{st}(b).
+\end{align*}
+Putting $c = \gamma$ so that $b = \gamma P = \beta$ we have
+\[
+H_{ik} = \sum_{s=0}^{m-1}\sum_{t=0}^{m-1} P_{is} P_{kt}  F_{st},
+\]
+or equivalently $H = P F P^\prime$.
+\end{IEEEproof}
+
+The lemma uses the notation we have developed for polynomial phase signals, however it is clear that the lemma applies generally, to any estimation problem for which a likelihood function and Fisher information matrix exist.  The utility of this result is as follows:  Computation of the inverse matrix $F^{-1}$ may be difficult, but, with a carefully chosen change of basis matrix $P$, computation of $H^{-1}$ might be easy (for example $H$ could be diagonal).  Using the lemma we have 
+\[
+F^{-1} = P^\prime H^{-1} P.
+\]  
+We will now apply this approach to compute the inverse Fisher information matrix for polynomial phase signals.  The most useful change of basis is described by the following family of polynomials.
+
+\section{The discrete orthogonal polynomials}\label{sec:discr-orth-polyn}
+
+\begin{definition}  \label{def:discreteLegendepolys}
+The discrete orthogonal polynomial of order $k$, denoted by $d_k$, is
+\[
+d_k(x) = \frac{k!}{\binom{2k}{k}}\sum_{s=0}^k{(-1)^{s+k}\binom{s+k}{s}\binom{N-s-1}{N-k-1}q_s(x)},
+\]
+where $q_s$ is the polynomial
+\[
+q_s(x) = \binom{x-1}{s} = \frac{(x-1)(x-2)\dots(x-s)}{s!}
+\]
+and we define $q_0(x) = 1$.
+\end{definition}
+The discrete orthogonal polynomials (as we have defined them) are monic, i.e. the coefficient of the highest order term is equal to one, and the $k$th discrete orthogonal polynomial $d_k$ has order $k$.  The $d_k$ are orthogonal in the sense that~\cite{Szego1975_ortho_polynomials,Eisinberg2001_Vandermonde_rect,Eisinberg2007_discerete_otho_poly_equidist},
+\[
+\sum_{n=1}^{N}{ d_i(n) d_k(n) } = \begin{cases}
+0 &  k\neq i \\
+(k!)^2 \binom{2k}{k}^{-1} \binom{N+k}{2k+1}  & k = i,
+\end{cases}
+\]
+and this will be a useful property for our purpose.  Let 
+\[
+P = \left( \begin{array}{c}
+\coef(d_0) \\
+\vdots \\
+\coef(d_m)
+\end{array} \right)
+\]
+and put $\beta = \gamma P$.  The Fisher information matrix corresponding to $\gamma$ is the $m+1$ by $m+1$ matrix $H$ with elements
+\begin{align*}
+H_{ik} &= \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} d_{i}(n) d_{k}(n) \\
+&= \begin{cases}
+0 &  k\neq i \\
+ \frac{\alpha^2}{\sigma^2}\ (k!)^2 \binom{2k}{k}^{-1} \binom{N+k}{2k+1}  & k = i.
+\end{cases}
+\end{align*}
+Thus $H$ is diagonal and the inverse has elements
+\[
+H_{ik}^{-1} = \begin{cases}
+0 &  k\neq i \\
+ \frac{\sigma^2}{\alpha^2}\ (k!)^{-2} \binom{2k}{k} \binom{N+k}{2k+1}^{-1}  & k = i.
+\end{cases}
+\] 
+The inverse Fisher information matrix in the standard basis is $F^{-1} = P^\prime H^{-1} P$.  It remains to find closed form expressions for the elements of $P$, i.e. for the coefficients of $d_k$.  
+
+Observe that the polynomials $q_0,q_1,\dots$ satisfy the recursion
+\[
+q_s(x) = \frac{x-s}{s} q_{s-1}(x), \qquad q_{0}(x) = 1.
+\]
+If $q_s(x) = q_{s0} + q_{s1}x + \dots, q_{ss}x^s$ so that $q_{s0},q_{s1},\dots,q_{ss}$ are the coefficients of $q_{s}$, then
+\[
+q_{si} = \frac{1}{s}q_{s-1,i-1} - q_{s-1,i}
+\]
+where $q_{00}=1$ and $q_{0i}=0$ for $i \neq 0$ and $q_{si} = 0$ if either of $s$ or $i$ is negative.
+
+Now the $i$th coefficient of $d_k$ is
+\[
+P_{ki} = \frac{k!}{\binom{2k}{k}}\sum_{s=0}^k{(-1)^{s+k}\binom{s+k}{s}\binom{N-s-1}{N-k-1}q_{si}}
+\]  
+which is closed form in the sense that the number of operations required to compute $P_{ki}$ does not depend on $N$.  The inverse matrix $F^{-1} = P^\prime H^{-1} P$ can now be computed in closed form.  Evaluating the diagonal terms gives bounds,
+\begin{align*}
+\var \hat{\beta}_i \geq F_{ii}^{-1} &=  \sum_{s=0}^{m}\sum_{t=0}^{m} P_{si} P_{ti}  H_{st}^{-1} \\
+&=  \sum_{k=0}^{m} P_{ki}^2  H_{kk}^{-1} \\
+&= \frac{\sigma^2}{\alpha^2} \sum_{k=0}^{m} (k!)^{-2} \binom{2k}{k} \binom{N+k}{2k+1}^{-1} P_{ki}^2.
+\end{align*}
+ 
+
+%\section{Bounds derived from time shifting}
+ 
+
+\section{Including the amplitude}\label{sec:including-amplitude}
+
+Including the amplitude as an estimation parameter and deriving its Cram\'{e}r-Rao bound is straightforward.  Our model for a polynomial phase signal is now
+\[
+s_n(b) = a \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
+\]
+where $b=(b_0, \dots, b_m, a)$ is a vector of length $m+2$, the first $m+1$ elements being the polynomial coefficient (as before) and the last element being the amplitude.  We now consider estimation of $\beta = (\beta_0, \dots, \beta_m, \alpha)$ from observations $y_1, \dots, y_N$ where $y_n = s_n(\beta) + w_n$.  The Fisher information matrix for $\beta$ can be shown to take the form
+\[
+G = \left( \begin{array}{cc}
+F & \vdots \\
+\cdots & \frac{N\alpha^2}{\sigma^2}
+\end{array}\right)
+\]
+where $\cdots$'s indicate zeros.  The inverse is
+\[
+G^{-1} = \left( \begin{array}{cc}
+F^{-1} & \vdots \\
+\cdots & \frac{\sigma^2}{N\alpha^2}
+\end{array} \right).
+\]
+So, the Cram\'{e}r-Rao bounds for the polynomial phase parameters $\beta_0, \dots, \beta_m$ are unchanged by including the amplitude.  The bound for an unbiased amplitude estimator $\hat{\alpha}$ is
+\[
+\var \hat{\alpha} \geq G_{m+1,m+1}^{-1} = \frac{\sigma^2}{N\alpha^2}.
+\]
+This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.
+
+\section{Simulations}\label{sec:simuations}
+
+Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} display the results of Monte-Carlo simulation with the maximum likelihood estimator and also the exact Cram\'{e}r-Rao bound and the approximate Cram\'{e}r-Rao bound given by equation (34) in~\cite{Peleg1991_CRB_PPS_1991}.  The simulations use $m=2$ and $N=5,20$ and with $\text{SNR} = \tfrac{\alpha^2}{2\sigma^2}$ in the range \unit[-5]{dB} to \unit[25]{dB}.   The average square error of the maximum likelihood estimator after $10^4$ replacations is given by the dots.  This is computed using the approach from~\cite[Sec.~10.1]{McKilliam2010thesis}.  The solid line is the exact Cram\'{e}r-Rao bound and the dashed line is the approximation.  As is expected, the maximum likelihood estimator achieves the Cram\'{e}r-Rao bound provided that the SNR is large enough, so that the `threshold' effect is avoided.  The approximate bound from~\cite{Peleg1991_CRB_PPS_1991} becomes accurate as $N$ increases.  In the figures the maximum likelihood estimator appears to perform better than the bound when the SNR is small.  This is an artifact of the identifiability conditions that must be imposed on the polynomial phase estimation problem~\cite[Ch.~7]{McKilliam2010thesis}\cite{McKilliam2009IndentifiabliltyAliasingPolyphase}.  The effect is that as SNR decreases, the variance of $\hat{\beta}_k$ converges to that of the uniform distribution on $[-\tfrac{0.5}{k!},\tfrac{0.5}{k!})$.
+
+\begin{figure}[p]
+   	\centering 
+  		\includegraphics{code/plot-1.mps} 
+   		\caption{Variance of $\hat{\beta}_0$ versus SNR.} 
+   		\label{plot:phase0} 
+  \end{figure} 
+
+\begin{figure}[p]
+   	\centering 
+  		\includegraphics{code/plot-2.mps} 
+   		\caption{Variance of $\hat{\beta}_1$ versus SNR.} 
+   		\label{plot:phase1} 
+  \end{figure} 
+
+\begin{figure}[p]
+   	\centering 
+  		\includegraphics{code/plot-3.mps} 
+   		\caption{Variance of $\hat{\beta}_2$ versus SNR.} 
+   		\label{plot:phase2} 
+  \end{figure} 
+ 
+\section{Conclusion}
+
+Using a family of discrete orthogonal polynomials we provide closed form formula for the Cram\'{e}r-Rao lower bound for unbiased estimators of polynomial phase signals.
+
+
+%\bibliographystyle{IEEEbib}
+\small 
+\bibliography{bib}
+ 
+ 
+\end{document}
