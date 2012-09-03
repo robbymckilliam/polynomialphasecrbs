@@ -49,18 +49,18 @@ and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators ha
 
 Under the assumption that $\{w_n\}$ are additive white and Gaussian, Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} have derived the Cram\'{e}r-Rao lower bound for unbiased estimators of the coefficients $\beta$.  Their approach requires the inversion of a poorly conditioned Fisher information matrix.  To avoid this, they provide an approximation that is valid when the number of observations $N$ is much larger than the order of the polynomial phase signal $m$.  Here we remove the need for this approximation.  By converting the polynomial basis to one that is orthogonal we derive closed form formula for the inverse Fisher information matrix.  This leads to closed form formula for the Cram\'{e}r-Rao bounds.  %At the same time we tie together some existing literature on the Cram\'{e}r-Roa bound for polynomial phase signals~\cite{Peleg1991_CRB_PPS_1991,Ristic_crbpelegcomment_1998}.
 
-The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fisher information matrix in a similar way to Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  The matrix is poorly conditioned and inverting it to obtain the Cram\'{e}r-Rao bound is difficult.  In Section~\ref{sec:changing-basis} we describe some general results regarding changing the basis in which a polynomial phase signal may be represented.  We describe the Fisher information matrix corresponding with a chosen basis and we relate the matrices between two bases.  In Section~\ref{sec:discr-orth-polyn} we introduce the family of discrete orthogonal polynomials.  By transforming into this basis, the corresponding Fisher information matrix becomes diagonal, making matrix inversion simple.  This leads directly to closed form expressions for the Cram\'{e}r-Rao bounds.  To keep our derivation simple we initially assume that the amplitude $\alpha$ is a fixed constant, and not a parameter to be estimated.  However, including the amplitude is straightforward, and we do this in Section~\ref{sec:including-amplitude}.  Section~\ref{sec:simuations} presents the results of Monte-Carlo simulations, these are in agreement with our exact bounds.
+The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fisher information matrix in a similar way to Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  The matrix is poorly conditioned and inverting it to obtain the Cram\'{e}r-Rao bound is difficult.  In Section~\ref{sec:changing-basis} we describe some general results regarding changing the basis in which a polynomial phase signal may be represented.  We describe the Fisher information matrix corresponding with a chosen basis, and we relate the matrices between two bases.  In Section~\ref{sec:discr-orth-polyn} we introduce the family of discrete orthogonal polynomials.  By transforming into this basis, the corresponding Fisher information matrix becomes diagonal, making matrix inversion simple.  This leads directly to closed form expressions for the Cram\'{e}r-Rao bounds.  To keep our derivation simple we initially assume that the amplitude $\alpha$ is a fixed constant, and not a parameter to be estimated.  However, including the amplitude is straightforward, and we do this in Section~\ref{sec:including-amplitude}.  Section~\ref{sec:simuations} presents the results of Monte-Carlo simulations that agree with our exact bounds.
 
 
 \section{The Cram\'{e}r-Rao bound} \label{sec_crb}
 
 We make the assumption that the noise sequence $\{ w_n \}$ is independent and identically distributed complex Gaussian, each element having independent real and imaginary parts with zero mean and variance $\sigma^2$.  The probability density function of $w_n$ is 
 \[
-p(x) = \frac{1}{4 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
+p(x) = \frac{1}{2 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
 \]
 where $\abs{x}^2$ is the squared magnitude of the complex number $x$.  We wish to estimate $\beta$ from $y_1, \dots, y_N$.  The likelihood function is
 \[
-L(b) =  \frac{1}{(4 \pi \sigma^2)^N} \exp\left( - \frac{1}{2\sigma^{2}} \sum_{n=1}^N \abs{y_n -  s_n(b) }^2 \right).
+L(b) = \frac{1}{(2 \pi \sigma^2)^N} \exp\left( - \frac{1}{2\sigma^{2}} \sum_{n=1}^N \abs{y_n -  s_n(b) }^2 \right).
 \]
 %The maximum likelihood estimators of $\alpha, \beta_0, \dots, \beta_m$ are the maximisers of $L$.
 % , that is
@@ -77,7 +77,7 @@ The Fisher information matrix $F$ is the $m+1$ by $m+1$ matrix with elements $F_
 F_{ik} = F_{ki} = \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} n^{i}n^{k}.
 \]
 
-Let $\hat{\beta}$ be an unbiased estimator of $\beta$.  The Cram\'{e}r-Rao bound asserts:  If $C$ is the covariance matrix of $\hat{\beta}$, then $C - F^{-1}$ is positive semidefinite where $F^{-1}$ is the inverse of $F$.  The diagonal elements of a positive semidefinite matrix are nonnegative so $C_{ii} \geq F^{-1}_{ii}$ and correspondingly, 
+Let $\hat{\beta}$ be an unbiased estimator of $\beta$.  The Cram\'{e}r-Rao bound asserts:  If $C$ is the covariance matrix of $\hat{\beta}$, then $C - F^{-1}$ is positive semidefinite, where $F^{-1}$ is the inverse of $F$.  The diagonal elements of a positive semidefinite matrix are nonnegative so $C_{ii} \geq F^{-1}_{ii}$ and correspondingly, 
 \[
 C_{ii} = \var \hat{\beta}_{i} \geq F_{ii}^{-1}, \qquad i=0,\dots,m.
 \]  
