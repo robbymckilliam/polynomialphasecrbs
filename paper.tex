@@ -39,7 +39,7 @@ A uniformly sampled, constant amplitude, polynomial-phase signal of order $m$ ha
 \[
 s_n(b) = \alpha \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
 \]
-where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), $b=(b_0, \dots, b_m)$ is a vector containing the polynomial coefficients, $j = \sqrt{-1}$ and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
+where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), $b=(b_0, \dots, b_m)$ is a vector containing the polynomial coefficients (each a real number),  and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
 
 Polynomial-phase signals have numerous applications including radar, sonar, geophysics, and radio communication~\cite{Angeby_estimating_2000}.  The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995}.  Of practical importance is the estimation of the coefficients $\beta = (\beta_0, \dots \beta_m)$ from $N$ consecutive samples $y_1, \dots. y_N$ where 
 \[
@@ -56,7 +56,7 @@ The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fishe
 
 We make the assumption that the noise sequence $\{ w_n \}$ is independent and identically distributed complex Gaussian, each element having independent real and imaginary parts with zero mean and variance $\sigma^2$.  The probability density function of $w_n$ is 
 \[
-p(x) = \frac{1}{4 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
+p(x) = \frac{1}{2 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
 \]
 where $\abs{x}^2$ is the squared magnitude of the complex number $x$.  We wish to estimate $\beta$ from $y_1, \dots, y_N$.  The likelihood function is
 \[
@@ -88,7 +88,7 @@ Be aware that $F_{ik}^{-1}$ is the $ik$th element of the inverse matrix $F^{-1}$
 
 \newcommand{\calP}{{\mathcal P}}
 
-For a polynomial $g(x) = b_0 + b_1 x + \dots + b_m x^m$ of order at most $m$ denote by $\coef(g) = (b_0, b_1, \dots, b_m)$ the vector of length $m+1$ containing its coefficients.  Let $p_0, \dots, p_m$ be a family of linearly independent polynomials.  By linearly independent it is meant that any polynomial of order at most $m$ can be written as a linear combination $c_0p_0 + c_1 p_1 + \dots + c_m p_m$ where $c_1, \dots, c_m$ are real numbers.  Observe that $p_0, \dots, p_m$ are linearly independent if and only if the vectors $\coef(p_0), \dots, \coef(p_m)$ are linearly independent.  We call $p_0, \dots, p_m$ a \emph{basis} for the space of polynomials of order $m$.  We call the polynomials $n^0, n^1, \dots, n^m$ the \emph{standard basis}.  
+For a polynomial $g(x) = b_0 + b_1 x + \dots + b_m x^m$ of order at most $m$ denote by $\coef(g) = (b_0, b_1, \dots, b_m)$ the vector of length $m+1$ containing its coefficients.  Let $p_0,\dots, p_m$ be a family of linearly independent polynomials of orders at most $m$.  By linearly independent it is meant that any polynomial of order at most $m$ can be written as a linear combination $c_0p_0 + c_1 p_1 + \dots + c_m p_m$ where $c_1, \dots, c_m$ are real numbers.  Observe that $p_0, \dots, p_m$ are linearly independent if and only if the vectors $\coef(p_0), \dots, \coef(p_m)$ are linearly independent.  We call $p_0, \dots, p_m$ a \emph{basis} for the space of polynomials of order $m$.  We call the polynomials $x^0, x^1, \dots, x^m$ the \emph{standard basis}.  
 
 Let 
 \[
@@ -108,7 +108,7 @@ Put,
 \[
 r_n(c) = \alpha \exp\left( j \sum_{k = 0}^{m}{c_k p_k(n)}\right)
 \]
-so that $r_n(c)$ is a polynomial phase signal expressed in terms of the basis $p_0, \dots, p_m$.  Correspondingly $s_n(b)$ is a polynomial phase expressed in terms of the standard basis $n^0, n^1, \dots, n^m$.  The two signals are related by
+so that $r_n(c)$ is a polynomial phase signal expressed in terms of the basis $p_0, \dots, p_m$.  Correspondingly $s_n(b)$ is a polynomial phase signal expressed in terms of the standard basis $x^0, x^1, \dots, x^m$.  The two signals are related by
 \[
 r_n(c) = s_n(cP) = s_n(b).
 \]
