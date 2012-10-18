@@ -35,26 +35,26 @@ Polynomial-phase signals, Cram\'{e}r-Rao bound.
 
 \section{Introduction}
 
-A uniformly sampled, constant amplitude, polynomial-phase signal of order $m$ has the model~\cite{Peleg_DPT_1995, Peleg1991_CRB_PPS_1991, Peleg1991_est_class_PPS_1991, Rihaczek1996},
+A uniformly sampled, constant amplitude, polynomial-phase signal of order $m$ has the model~\cite{Peleg_DPT_1995, Peleg1991_CRB_PPS_1991, Peleg1991_est_class_PPS_1991},
 \[
 s_n(b) = \alpha \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
 \]
-where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), the argument $b=(b_0, \dots, b_m)$ is a vector representing the polynomial coefficients (each $b_k$ a real number),  and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
+where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), the argument $b=(b_0, \dots, b_m)\in\reals^{m+1}$ is a vector representing the polynomial coefficients,  and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
 
-Polynomial-phase signals have applications including radar, sonar, geophysics, and radio communication~\cite{Angeby_estimating_2000}.  The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995}.  Of practical importance is the estimation of the coefficients $\beta = (\beta_0, \dots \beta_m)$ from $N$ consecutive samples $y_1, \dots. y_N$ where 
-\[
+Polynomial-phase signals have applications including radar, sonar, geophysics, and radio communication~\cite{Angeby_estimating_2000}.  The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995}.  Of practical importance is the estimation of the coefficients $\beta = (\beta_0, \dots \beta_m)\in\reals^{m+1}$ from $N$ consecutive samples $y_1, \dots. y_N$ where 
+\begin{equation}\label{eq:yndatamodel}
 y_n = s_n(\beta) + w_n
-\]
+\end{equation}
 and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Peleg_DPT_1995, Angeby_estimating_2000, Djuric_phase_unwrap_chirp_1990, Oshea_iterative_1996, Barbarossa_analysis_of_PPS_1997, Slocumb_polynomial_1994, Morelande_bayes_unwrapping_2008, Kitchen_polyphase_unwrapping_1994,Francos_2dpolyest_1998}.
 
-Under the assumption that $\{w_n\}$ are additive white and Gaussian, Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} have derived the Cram\'{e}r-Rao lower bound for unbiased estimators of the coefficients $\beta$.  Their approach requires inversion of a poorly conditioned Fisher information matrix.  To avoid this, they provide an approximation that is valid when the number of observations $N$ is sufficiently larger than the order of the polynomial phase signal $m$.  Here we remove the need for this approximation.  By converting the polynomial basis to one that is orthogonal we derive closed form formula for the inverse Fisher information matrix.  This leads to closed form formula for the Cram\'{e}r-Rao bounds.  %At the same time we tie together some existing literature on the Cram\'{e}r-Roa bound for polynomial phase signals~\cite{Peleg1991_CRB_PPS_1991,Ristic_crbpelegcomment_1998}.
+Under the assumption that $\{w_n\}$ are additive white and Gaussian, Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} derived the Cram\'{e}r-Rao lower bound for unbiased estimators of the coefficients $\beta$.  Their approach requires inversion of a poorly conditioned Fisher information matrix.  To avoid this, they provide an approximation that is valid when the number of observations $N$ is sufficiently larger than the order of the polynomial phase signal $m$.  Here we remove the need for this approximation.  By converting the polynomial basis to one that is orthogonal we derive closed form formula for the inverse Fisher information matrix.  This leads to closed form formula for the Cram\'{e}r-Rao bounds.  %At the same time we tie together some existing literature on the Cram\'{e}r-Roa bound for polynomial phase signals~\cite{Peleg1991_CRB_PPS_1991,Ristic_crbpelegcomment_1998}.
 
-The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fisher information matrix in a similar way to Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  The matrix is poorly conditioned and inverting it to obtain the Cram\'{e}r-Rao bound is difficult.  In Section~\ref{sec:changing-basis} we describe some general results regarding changing the basis in which a polynomial phase signal may be represented.  We describe the Fisher information matrix corresponding with a chosen basis, and we relate the matrices between two bases.  In Section~\ref{sec:discr-orth-polyn} we introduce the family of discrete orthogonal polynomials.  By transforming into this basis, the corresponding Fisher information matrix becomes diagonal, making matrix inversion simple.  This leads directly to closed form expressions for the Cram\'{e}r-Rao bounds.  To keep our derivation simple we initially assume that the amplitude and the noise variance are fixed constants, and not parameters to be estimated.  However, including the amplitude and noise variance is straightforward, and we do this in Section~\ref{sec:including-amplitude}.  %Section~\ref{sec:simuations} presents the results of Monte-Carlo simulations that agree with our exact bounds.
+The paper is organised as follows.  In Section~\ref{sec_crb} we derive the Fisher information matrix in a similar way to Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  The matrix is poorly conditioned and inverting it to obtain the Cram\'{e}r-Rao bound is difficult.  In Section~\ref{sec:changing-basis} we describe some general results regarding changing the basis in which a polynomial phase signal may be represented.  We describe the Fisher information matrix corresponding with a chosen basis, and relate the matrices between two bases.  In Section~\ref{sec:discr-orth-polyn} we introduce the family of discrete orthogonal polynomials.  By transforming into this basis, the corresponding Fisher information matrix becomes diagonal, making matrix inversion simple.  This leads directly to closed form expressions for the Cram\'{e}r-Rao bounds.  To keep our derivation simple we initially assume that the amplitude and the noise variance are fixed constants, and not parameters to be estimated.  However, including the amplitude and noise variance is straightforward, and we do this in Section~\ref{sec:including-amplitude}.  %Section~\ref{sec:simuations} presents the results of Monte-Carlo simulations that agree with our exact bounds.
 
 
 \section{The Cram\'{e}r-Rao bound} \label{sec_crb}
 
-We make the assumption that the noise sequence $\{ w_n \}$ is independent and identically distributed complex Gaussian, each element having independent real and imaginary parts with zero mean and variance $\sigma^2$. Thus $\expect\abs{w_n}^2 = 2\sigma^2$.  The probability density function of $w_n$ is 
+We make the assumption that the noise sequence $\{ w_n \}$ is independent and identically distributed complex Gaussian, each element $w_n$ having independent real and imaginary parts with zero mean and variance $\sigma^2$. Thus $\expect\abs{w_n}^2 = 2\sigma^2$ where $\expect$ denotes expectation.  The probability density function of $w_n$ is 
 \[
 p(x) = \frac{1}{2 \pi \sigma^2} \exp\left( -\frac{\abs{x}^2}{2\sigma^2} \right)
 \]
@@ -70,9 +70,9 @@ L(b) = \frac{1}{(2 \pi \sigma^2)^N} \exp\left( - \frac{1}{2\sigma^{2}} \sum_{n=1
 % where $B \subset \reals^{m+1}$ describes a region of polynomial phase coefficients for which the estimation problem is identifiable~\cite{McKilliam2009IndentifiabliltyAliasingPolyphase,McKilliam_LSU_polyest_part1_2012}.  We assume that $(\beta_0, \dots, \beta_m) \in B$.
 For $i,k \in \{0, \dots, m\}$ define functions 
 \[
-f_{ik}(b) = f_{ki}(b) = -\expect \frac{ \partial^2 \log L(b) }{ \partial b_{i} \partial b_{k}},
+f_{ik}(b) = f_{ki}(b) = -\expect \frac{ \partial^2 \log L(b) }{ \partial b_{i} \partial b_{k}}.
 \]  
-where $\expect$ denotes expectation.  The Fisher information matrix $F$ is the $m+1$ by $m+1$ matrix with elements $F_{i k} = f_{ik}(\beta)$.  The elements are
+The Fisher information matrix $F$ corresponding with $\beta$ is the $m+1$ by $m+1$ matrix with elements $F_{i k} = f_{ik}(\beta)$.  The elements are
 \[
 F_{ik} = F_{ki} = \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} n^{i}n^{k}.
 \]
@@ -82,7 +82,7 @@ Let $\hat{\beta}$ be an unbiased estimator of $\beta$.  The Cram\'{e}r-Rao bound
 \[
 C_{ii} = \var \hat{\beta}_{i} \geq F_{ii}^{-1}, \qquad i=0,\dots,m.
 \]  
-Be aware that $F_{ik}^{-1}$ is the $ik$th element of the inverse matrix $F^{-1}$.  It is not the reciprocal of $F_{ik}$.  Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} found that $F$ is poorly conditioned and for this reason $F^{-1}$ is difficult to compute.   We will circumvent this problem by applying a change of basis to the polynomial coefficients $\beta$.  This will lead to closed form formula for $F^{-1}$.  
+Be aware that $F_{ik}^{-1}$ is the $ik$th element of the inverse matrix $F^{-1}$.  It is not the reciprocal of $F_{ik}$.  Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991} found that $F$ can be poorly conditioned and for this reason $F^{-1}$ can be difficult to compute.   We will circumvent this problem by applying a change of basis to the polynomial coefficients $\beta$.  This will lead to closed form formula for $F^{-1}$.  
 
 
 \section{Changing the basis}\label{sec:changing-basis}
@@ -109,11 +109,11 @@ Put,
 \[
 r_n(c) = \alpha \exp\left( j \sum_{k = 0}^{m}{c_k p_k(n)}\right)
 \]
-so that $r_n(c)$ is a polynomial phase signal expressed in terms of the basis $p_0, \dots, p_m$.  Correspondingly $s_n(b)$ is a polynomial phase signal expressed in terms of the standard basis $x^0, x^1, \dots, x^m$.  The two signals are related by
+so that $r_n(c)$ represents a polynomial phase signal expressed in terms of the basis $p_0, \dots, p_m$.  Correspondingly $s_n(b)$ represents a polynomial phase signal expressed in terms of the standard basis $x^0, x^1, \dots, x^m$.  The two signals are related by
 \[
 r_n(c) = s_n(cP) = s_n(b).
 \]
-The observed samples $y_1,\dots,y_N$ can be written using $r_n$ as
+The observed samples $y_1,\dots,y_N$ from~\eqref{eq:yndatamodel} can be written using $r_n$ as
 \[
 y_n = r_n(\gamma) + w_n = s_n(\gamma P) + w_n
 \]
@@ -127,11 +127,21 @@ and we can compute the corresponding Fisher information matrix.  It is found to 
 \[
 H_{ik} = H_{ki} = \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} p_{i}(n) p_{k}(n).
 \]
-The Cram\'{e}r-Rao bound for $\gamma$ is found by taking the inverse of $H$.  The next well know property relates the two Fisher information matrices $H$ and $F$.  We do not intend to claim any novelty by including a formal statement of this property.  The property follows, for example from the more general result in~\cite[p. 45]{Kay1993_stat_sig_est_theory}.  %We included a proof simply for completeness.
+The Cram\'{e}r-Rao bound for $\gamma$ is found by taking the inverse of $H$.  It follows, for example from~\cite[Sec. 3.8]{Kay1993_stat_sig_est_theory}, that the Fisher information matrices $H$ and $F$ are related by,
+\[
+H = P F P^\prime.
+\]
+The utility of this relationship is as follows:  Computation of the inverse matrix $F^{-1}$ may be difficult, but with a carefully chosen change of basis matrix $P$, computation of $H^{-1}$ might be easy (for example $H$ could be diagonal).  We then have
+\[
+F^{-1} = P^\prime H^{-1} P.
+\]  
+We will now apply this approach to compute the inverse Fisher information matrix for polynomial phase signals.  The most useful change of basis is described by the following family of polynomials.
 
-\begin{property}
-Suppose we desire to estimate $\beta \in \reals^m$ and that $L(b)$ is the corresponding likelihood function and $F$ the corresponding $m \times m$ Fisher information matrix.  Let $P$ be an $m \times m$ invertible matrix and $\gamma \in \reals^m$ be such that $\beta = \gamma P$.  Then the likelihood function corresponding to $\gamma$ is $L_\gamma(c) = L(cP)$ and the corresponding Fisher information matrix is $H = P F P^\prime$. 
-\end{property}
+% The next well know property relates the two Fisher information matrices $H$ and $F$.  We do not intend to claim any novelty by including a formal statement of this property.  The property follows, for example from the more general result in~\cite[p. 45]{Kay1993_stat_sig_est_theory}.  %We included a proof simply for completeness.
+
+% \begin{property}
+% Suppose we desire to estimate $\beta \in \reals^m$ and that $L(b)$ is the corresponding likelihood function and $F$ the corresponding $m \times m$ Fisher information matrix.  Let $P$ be an $m \times m$ invertible matrix and $\gamma \in \reals^m$ be such that $\beta = \gamma P$.  Then the likelihood function corresponding to $\gamma$ is $L_\gamma(c) = L(cP)$ and the corresponding Fisher information matrix is $H = P F P^\prime$. 
+% \end{property}
 % \begin{IEEEproof}
 % Put $b = cP$.  That $L_\gamma(c) = L(cP) = L(b)$ is plain.  The elements $F_{ik} = f_{ik}(\beta)$ where
 % \[
@@ -155,11 +165,11 @@ Suppose we desire to estimate $\beta \in \reals^m$ and that $L(b)$ is the corres
 % \end{IEEEproof}
 
 %The statement uses the notation we have developed for polynomial phase signals, but it applies generally, to any estimation problem for which a likelihood function and Fisher information matrix exist.  
-The utility of this property is as follows:  Computation of the inverse matrix $F^{-1}$ may be difficult, but, with a carefully chosen change of basis matrix $P$, computation of $H^{-1}$ might be easy (for example $H$ could be diagonal).  Using the property we have 
-\[
-F^{-1} = P^\prime H^{-1} P.
-\]  
-We will now apply this approach to compute the inverse Fisher information matrix for polynomial phase signals.  The most useful change of basis is described by the following family of polynomials.
+% The utility of this property is as follows:  Computation of the inverse matrix $F^{-1}$ may be difficult, but, with a carefully chosen change of basis matrix $P$, computation of $H^{-1}$ might be easy (for example $H$ could be diagonal).  Using the property we have 
+% \[
+% F^{-1} = P^\prime H^{-1} P.
+% \]  
+% We will now apply this approach to compute the inverse Fisher information matrix for polynomial phase signals.  The most useful change of basis is described by the following family of polynomials.
 
 \section{The discrete orthogonal polynomials}\label{sec:discr-orth-polyn}
 
@@ -174,7 +184,7 @@ q_s(x) = \binom{x-1}{s} = \frac{(x-1)(x-2)\dots(x-s)}{s!}
 \]
 and we define $q_0(x) = 1$.
 \end{definition}
-The discrete orthogonal polynomials (as we have defined them) are monic, i.e. the coefficient of the highest order term is equal to one, and the $k$th discrete orthogonal polynomial $d_k$ has order $k$.  This family of polynomials is closely related to what are called the \emph{Gram polynomials} or \emph{discrete Chebyschev polynomials}~\cite[p. 323]{Bjork_num_methods_least_square_1996}.  The specific family given by Definition~\ref{def:discreteLegendepolys} also appears in~\cite{Eisinberg2007_discerete_otho_poly_equidist}.  In this paper, we refer to the $d_k$ simply as the discrete orthogonal polynomials, but the reader should be aware that many other families of polynomials also go by this name.  
+The discrete orthogonal polynomials (as we have defined them) are monic, i.e. the coefficient of the highest order term is equal to one, and the $k$th discrete orthogonal polynomial $d_k$ has order $k$.  This family of polynomials is closely related to what are called the \emph{Gram polynomials} or \emph{discrete Chebyschev polynomials}~\cite[p. 323]{Bjork_num_methods_least_square_1996}\cite{Chebyshev_discrete_polys1864,Gram_discrete_polys1883}.  The specific family given by Definition~\ref{def:discreteLegendepolys} also appears in~\cite{Eisinberg2007_discerete_otho_poly_equidist}.  In this paper, we refer to $d_0,d_1,\dots$ simply as the discrete orthogonal polynomials, but the reader should be aware that many other families of polynomials also go by this name.  
 
 The $d_k$ are orthogonal in the sense that~\cite{Eisinberg2007_discerete_otho_poly_equidist},
 \[
@@ -206,7 +216,7 @@ H_{ik}^{-1} = \begin{cases}
  \frac{\sigma^2}{\alpha^2}\ (k!)^{-2} \binom{2k}{k} \binom{N+k}{2k+1}^{-1}  & k = i.
 \end{cases}
 \] 
-The inverse Fisher information matrix in the standard basis is $F^{-1} = P^\prime H^{-1} P$.  It remains to find closed form expressions for the elements of $P$, i.e. for the coefficients of $d_k$.  
+The inverse Fisher information matrix in the standard basis is $F^{-1} = P^\prime H^{-1} P$.  It remains to find closed form expressions for the elements of $P$, i.e. for the coefficients of $d_0,\dots,d_m$.  
 
 Observe that the polynomials $q_0,q_1,\dots$ satisfy the recursion
 \[
@@ -239,7 +249,7 @@ Including the amplitude $\alpha$ and noise variance $\sigma^2$ as estimation par
 \[
 s_n(b,a) = a \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
 \]
-where the argument $b=(b_0, \dots, b_m)$ represents the polynomial phase coefficients as before and the argument $a$ represents the amplitude.  We now consider estimation of $\beta = (\beta_0, \dots, \beta_m)$, $\alpha$ and $\sigma^2$  from observations $y_1, \dots, y_N$ where $y_n = s_n(\beta,\alpha) + w_n$.  The likelihood function is now
+where the argument $b=(b_0, \dots, b_m)$ represents the polynomial phase coefficients and the argument $a$ represents the amplitude.  We now consider estimation of $\beta = (\beta_0, \dots, \beta_m)$, $\alpha$ and $\sigma^2$  from observations $y_1, \dots, y_N$ where $y_n = s_n(\beta,\alpha) + w_n$.  The likelihood function is now
 \[
 L(b,a,v) = \frac{1}{(2 \pi v )^N} \exp\left( - \frac{1}{2 v } \sum_{n=1}^N \abs{y_n -  s_n(b,a) }^2 \right).
 \]
@@ -269,7 +279,7 @@ The bound for an unbiased amplitude estimator $\hat{\alpha}$ is
 \[
 \var \hat{\alpha} \geq G_{m+1,m+1}^{-1} = \frac{\sigma^2}{N}.
 \]
-This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  Note that in~\cite{Peleg1991_CRB_PPS_1991} the variance of the real and imaginary parts of $w_n$ is $\sigma^2/2$ rather than $\sigma^2$.  This is explains the factor of $2$ difference between some of the formula in~\cite{Peleg1991_CRB_PPS_1991} and our own.
+This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  Note that in~\cite{Peleg1991_CRB_PPS_1991} the variance of the real and imaginary parts of $w_n$ is $\sigma^2/2$ rather than $\sigma^2$.  This explains the factor of $2$ difference between some of the formula in~\cite{Peleg1991_CRB_PPS_1991} and our own.
 
 % \section{Simulations}\label{sec:simuations}
 
