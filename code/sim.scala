@@ -8,7 +8,7 @@ import pubsim.distributions.GaussianNoise
 import pubsim.poly.PolynomialPhaseEstimator
 
 val iters = 10000 //number of Monte-Carlo trials.
-val Ns = List(5,20) //values of N we will generate curves for
+val Ns = List(10,20) //values of N we will generate curves for
 val ms = List(2) //order of our polynomial phase signals
 val snrdbs = -5 to 25
 val fourpisqr = 4.0*scala.math.Pi*scala.math.Pi
