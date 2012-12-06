@@ -52,7 +52,7 @@ for( N <-  Ns; m <- ms ) {
     }.toList
     
     //now write all the data to a file
-    val files = (0 to m).map( v => new java.io.FileWriter(estname + "p" + v) ) //list of files to write to
+    val files = (0 to m).map( v => new java.io.FileWriter("data/" + estname + "p" + v) ) //list of files to write to
     (mselist, snrdbs).zipped.foreach{ (mse, snrdb) =>
       for ( i <- files.indices ) 
 	files(i).write(snrdb.toString.replace('E', 'e') + "\t" + (fourpisqr*mse(i)/iters).toString.replace('E', 'e')  + "\n") 
