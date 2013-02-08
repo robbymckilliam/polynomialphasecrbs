@@ -1,39 +1,38 @@
-%\documentclass[draftcls, onecolumn, 11pt]{IEEEtran}
-\documentclass[journal,10pt]{IEEEtran}
+%\documentclass[preprint,10pt]{elsarticle}
+%\documentclass[review]{elsarticle}
+\documentclass[5p]{elsarticle}
+
 
 \usepackage{mathbf-abbrevs}
 
 \input{defs}
 
+\journal{Signal Processing}
+
 \begin{document}
+
+\begin{frontmatter}
 
 \title{On the Cram\'{e}r-Rao bound for polynomial phase signals}
 
-\author{Robby McKilliam and Andr\'{e} Pollok%
-\thanks{Supported under the Australian Government's Australian Space Research Program.
-Robby McKilliam and Andr\'{e} Pollok are with the Institute for Telecommunications Research, The University of South Australia, SA, 5095}
-}
-% The paper headers
-\markboth{Robby McKilliam and Andre Pollock, On the Cram\'{e}r-Rao bound for polynomial phase signals}%
-{DRAFT \today}
+\author{Robby McKilliam} 
+\author{Andr\'{e} Pollok}
+\address{Institute for Telecommunications Research, The University of South Australia, SA, 5095}
+\fntext[asrp]{Supported under the Australian Government's Australian Space Research Program.}
 
-
-
-% make the title area
-\maketitle
 
 
 \begin{abstract}
 Polynomial-phase signals have applications including radar, sonar, geophysics, and radio communication.  Of practical importance is the estimation of the parameters of a polynomial phase signal from a sequence of noisy observations.  
-%Assuming that the noise is additive and Gaussian,  Peleg and Porat approximated the Cram\'{e}r-Rao bound for this estimation problem.  The approximation is accurate when the number of observations is sufficiently larger than the order of the polynomial phase signal.  
-We derive closed form formulae for the Cram\'{e}r-Rao  lower bounds of these parameters under the assumption that the noise is additive white and Gaussian.  This is achieved by making use of a family of orthogonal polynomials.
+Assuming that the noise is additive and Gaussian, the direct evaluation of the Cram\'{e}r-Rao lower bound for this estimation problem involves evaluating the inverse of a matrix.  Computing this inverse is numerically difficult for polynomial phase signal of large order.  By making use of a family of orthogonal polynomials, we derive formulae for the Cram\'{e}r-Rao lower bounds that are numerically stable and easy to compute.
 \end{abstract}
 
-\begin{IEEEkeywords}
+\begin{keyword}
 Polynomial-phase signals, Cram\'{e}r-Rao bound.
-\end{IEEEkeywords}
+\end{keyword}
 
 
+\end{frontmatter}
 
 \section{Introduction}
 
@@ -318,8 +317,8 @@ This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  Note t
 Using a family of discrete orthogonal polynomials we provide closed form formulae for the Cram\'{e}r-Rao lower bounds for unbiased estimators of polynomial phase signals.
 
 
-%\bibliographystyle{IEEEbib}
-\small 
+\bibliographystyle{elsarticle-num}
+%\small 
 \bibliography{bib}
  
  

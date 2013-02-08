@@ -116,38 +116,14 @@
 \newenvironment{centre}{\begin{center}}{\end{center}}
 \newenvironment{itemise}{\begin{itemize}}{\end{itemize}}
 
-%%%%% set up the bibliography style
-\bibliographystyle{IEEEbib}
-%\bibliographystyle{uqthesis}  % uqthesis bibliography style file, made
-			      % with makebst
-
-%%%%% optional packages
-\usepackage[square,comma,numbers,sort&compress]{natbib}
-		% this is the natural sciences bibliography citation
-		% style package.  The options here give citations in
-		% the text as numbers in square brackets, separated by
-		% commas, citations sorted and consecutive citations
-		% compressed 
-		% output example: [1,4,12-15]
-
-%\usepackage{cite}		
-			
 \usepackage{units}
 	%nice looking units
 		
 \usepackage{booktabs}
 		%creates nice looking tables
 		
-\usepackage{ifpdf}
-\ifpdf
-  \usepackage[pdftex]{graphicx}
-  %\usepackage{thumbpdf}
-  %\usepackage[naturalnames]{hyperref}
-  %\DeclareGraphicsRule{*}{mps}{*}{}
-\else
-	\usepackage{graphicx}% standard graphics package for inclusion of
+\usepackage{graphicx}% standard graphics package for inclusion of
 		      % images and eps files into LaTeX document
-\fi
 
 \usepackage{amsmath,amsfonts,amssymb, amsthm, bm} % this is handy for mathematicians and physicists
 			      % see http://www.ams.org/tex/amslatex.html
