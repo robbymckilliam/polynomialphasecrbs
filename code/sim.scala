@@ -13,7 +13,6 @@ val ms = List(2) //order of our polynomial phase signals
 val snrdbs = -5 to 25
 val fourpisqr = 4.0*scala.math.Pi*scala.math.Pi
 
-
 //returns an array of noise distributions with a logarithmic scale
 def noises = snrdbs.map( snrdb => new GaussianNoise(0,scala.math.pow(10.0,-snrdb/10.0)/2.0) )
 
@@ -53,7 +52,7 @@ for( N <-  Ns; m <- ms ) {
     }.toList
     
     //now write all the data to a file
-    val files = (0 to m).map( v => new java.io.FileWriter(estname + "p" + v) ) //list of files to write to
+    val files = (0 to m).map( v => new java.io.FileWriter("data/" + estname + "p" + v) ) //list of files to write to
     (mselist, snrdbs).zipped.foreach{ (mse, snrdb) =>
       for ( i <- files.indices ) 
 	files(i).write(snrdb.toString.replace('E', 'e') + "\t" + (fourpisqr*mse(i)/iters).toString.replace('E', 'e')  + "\n") 
@@ -63,7 +62,6 @@ for( N <-  Ns; m <- ms ) {
     val estruntime = (new java.util.Date).getTime - eststarttime
     println(" finished in " + (estruntime/1000.0) + " seconds.")
   
-
 }
 
 val runtime = (new java.util.Date).getTime - starttime
