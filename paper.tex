@@ -226,21 +226,29 @@ H_{ik}^{-1} = \begin{cases}
 \] 
 The inverse Fisher information matrix in the standard basis is $F^{-1} = P^\prime H^{-1} P$.  It remains to find closed form expressions for the elements of $P$, i.e. for the coefficients of $d_0,\dots,d_m$.  
 
-Observe that the polynomials $q_0,q_1,\dots$ satisfy the recursion
-\[
-q_s(x) = \frac{x-s}{s} q_{s-1}(x), \qquad q_{0}(x) = 1.
-\]
-If $q_s(x) = q_{s0} + q_{s1}x + \dots, q_{ss}x^s$ so that $q_{s0},q_{s1},\dots,q_{ss}$ are the coefficients of $q_{s}$, then
-\[
-q_{si} = \frac{1}{s}q_{s-1,i-1} - q_{s-1,i}
-\]
-where $q_{00}=1$ and $q_{0i}=0$ for $i \neq 0$ and $q_{si} = 0$ if any of $s$ or $i$ is negative.
+\newcommand{\stirling}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
 
-Now the $i$th coefficient of $d_k$ is
+% Observe that the polynomials $q_0,q_1,\dots$ satisfy the recursion
+%  \[
+%  q_s(x) = \frac{x-s}{s} q_{s-1}(x), \qquad q_{0}(x) = 1.
+%  \]
+%  If $q_s(x) = q_{s0} + q_{s1}x + \dots, q_{ss}x^s$ so that $q_{s0},q_{s1},\dots,q_{ss}$ are the coefficients of $q_{s}$, then
+%  \[
+%  q_{si} = \frac{1}{s}q_{s-1,i-1} - q_{s-1,i}
+%  \]
+%  where $q_{00}=1$ and $q_{0i}=0$ for $i \neq 0$ and $q_{si} = 0$ if any of $s$ or $i$ is negative.
+
+The $i$th coefficient of $d_k$ is
+\begin{align*}
+P_{ki} = \sum_{s=0}^k{(-1)^{s+k}\binom{s+k}{s}\binom{N-s-1}{N-k-1}q_{si}},
+%&= \sum_{s=0}^k{\frac{(-1)^{k-i}}{s!}\binom{s+k}{s}\binom{N-s-1}{N-k-1} \stirling{s+1}{k+1} }.
+\end{align*}
+where $q_{si}$ is the $i$th coefficient of the polynomial $q_s$.  Observe that
 \[
-P_{ki} = \sum_{s=0}^k{(-1)^{s+k}\binom{s+k}{s}\binom{N-s-1}{N-k-1}q_{si}}
-\]  
-which is closed form in the sense that the number of operations required to compute $P_{ki}$ does not depend on $N$.  The inverse matrix $F^{-1} = P^\prime H^{-1} P$ can now be computed in closed form.  Evaluating the diagonal terms gives bounds,
+q_{si} = \frac{(-1)^{s-i}}{s!}\stirling{s+1}{k+1}
+\]
+where $\stirling{s}{k}$ denotes the unsigned Stirling number of the first kind~\cite{Abramowitz_Stegen_stirling_numbers_1972}.  
+The inverse matrix $F^{-1} = P^\prime H^{-1} P$ can now be computed in closed form.  Evaluating the diagonal terms gives bounds,
 \begin{align*}
 \var \hat{\beta}_i \geq F_{ii}^{-1} &=  \sum_{s=0}^{m}\sum_{t=0}^{m} P_{si} P_{ti}  H_{st}^{-1} \\
 &=  \sum_{k=0}^{m} P_{ki}^2  H_{kk}^{-1} \\
@@ -287,30 +295,37 @@ The bound for an unbiased amplitude estimator $\hat{\alpha}$ is
 \]
 This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  Note that in~\cite{Peleg1991_CRB_PPS_1991} the variance of the real and imaginary parts of $w_n$ is $\sigma^2/2$ rather than $\sigma^2$.  This explains the factor of $2$ difference between some of the formulae in~\cite{Peleg1991_CRB_PPS_1991} and our own.
 
-% \section{Simulations}\label{sec:simuations}
+\section{Examples and simulations}\label{sec:simuations}
 
-% Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} display the results of Monte-Carlo simulation with the maximum likelihood estimator and also the exact Cram\'{e}r-Rao bound and the approximate Cram\'{e}r-Rao bound given by equation (34) in~\cite{Peleg1991_CRB_PPS_1991}.  The simulations use $m=2$ and $N=5,20$ and with $\text{SNR} = \tfrac{\alpha^2}{2\sigma^2}$ in the range \unit[-5]{dB} to \unit[25]{dB}.   The average square error of the maximum likelihood estimator after $10^4$ replacations is given by the dots.  This is computed using the approach from~\cite[Sec.~10.1]{McKilliam2010thesis}.  The solid line is the exact Cram\'{e}r-Rao bound and the dashed line is the approximation.  As is expected, the maximum likelihood estimator achieves the Cram\'{e}r-Rao bound provided that the SNR is large enough, so that the `threshold' effect is avoided.  The approximate bound from~\cite{Peleg1991_CRB_PPS_1991} becomes accurate as $N$ increases.  In the figures the maximum likelihood estimator appears to perform better than the bound when the SNR is small.  This is an artifact of the identifiability conditions that must be imposed on the polynomial phase estimation problem~\cite[Ch.~7]{McKilliam2010thesis}\cite{McKilliam2009IndentifiabliltyAliasingPolyphase}.  The effect is that as SNR decreases, the variance of $\hat{\beta}_k$ converges to that of the uniform distribution on $[-\tfrac{0.5}{k!},\tfrac{0.5}{k!})$.
+Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} display the results of Monte-Carlo simulation with the maximum likelihood estimator and also the exact Cram\'{e}r-Rao bound and the approximate Cram\'{e}r-Rao bound given by equation (34) in~\cite{Peleg1991_CRB_PPS_1991}.  The simulations use $m=2$ and $N=5,20$ and with $\text{SNR} = \tfrac{\alpha^2}{2\sigma^2}$ in the range \unit[-5]{dB} to \unit[25]{dB}.   The average square error of the maximum likelihood estimator after $10^4$ replacations is given by the dots.  This is computed using the approach from~\cite[Sec.~10.1]{McKilliam2010thesis}.  The solid line is the exact Cram\'{e}r-Rao bound and the dashed line is the approximation.  As is expected, the maximum likelihood estimator achieves the Cram\'{e}r-Rao bound provided that the SNR is large enough, so that the `threshold' effect is avoided.  The approximate bound from~\cite{Peleg1991_CRB_PPS_1991} becomes accurate as $N$ increases.  In the figures the maximum likelihood estimator appears to perform better than the bound when the SNR is small.  This is an artifact of the identifiability conditions that must be imposed on the polynomial phase estimation problem~\cite[Ch.~7]{McKilliam2010thesis}\cite{McKilliam2009IndentifiabliltyAliasingPolyphase}.  The effect is that as SNR decreases, the variance of $\hat{\beta}_k$ converges to that of the uniform distribution on $[-\tfrac{0.5}{k!},\tfrac{0.5}{k!})$.
+
+\begin{figure}[p]
+   	\centering 
+  		\includegraphics{code/data/plot-0.mps} 
+   		\caption{Variance versus SNR.} 
+   		\label{plot:phase0} 
+\end{figure} 
 
 % \begin{figure}[p]
 %    	\centering 
-%   		\includegraphics{code/plot-1.mps} 
+%   		\includegraphics{code/data/plot-1.mps} 
 %    		\caption{Variance of $\hat{\beta}_0$ versus SNR.} 
 %    		\label{plot:phase0} 
-%   \end{figure} 
+% \end{figure} 
 
 % \begin{figure}[p]
 %    	\centering 
-%   		\includegraphics{code/plot-2.mps} 
+%   		\includegraphics{code/data/plot-2.mps} 
 %    		\caption{Variance of $\hat{\beta}_1$ versus SNR.} 
 %    		\label{plot:phase1} 
-%   \end{figure} 
+% \end{figure} 
 
 % \begin{figure}[p]
 %    	\centering 
-%   		\includegraphics{code/plot-3.mps} 
+%   		\includegraphics{code/data/plot-3.mps} 
 %    		\caption{Variance of $\hat{\beta}_2$ versus SNR.} 
 %    		\label{plot:phase2} 
-%   \end{figure} 
+% \end{figure} 
  
 \section{Conclusion}
 
