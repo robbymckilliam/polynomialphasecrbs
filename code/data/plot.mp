@@ -72,8 +72,8 @@ draw dot shifted 1/2[(sx,sh + trans),(1cm,sh + trans)];
 
 legendone := currentpicture; currentpicture := ORIGINAL_PICTURE;
 
-plotheight = 6.4cm;
-plotwidth = 7.65cm;
+plotheight = 7.4cm;
+plotwidth = 9.65cm;
 
 
 %%%%%%%
@@ -89,9 +89,9 @@ draw begingraph(plotwidth, plotheight) ;
   gdraw "approxcrbN5m2i0" dashed evenly; glabel.llft(btex $\beta_0$ etex, 1000);
   gdraw "simN5m2p0" plot(dot);
 
-  %gdraw "crbN5m2i1"; 
-  %gdraw "approxcrbN5m2i1" dashed evenly; glabel.llft(btex $\beta_1$ etex, 1000);
-  %gdraw "simN5m2p1" plot(dot);
+  gdraw "crbN5m2i1"; 
+  gdraw "approxcrbN5m2i1" dashed evenly; glabel.llft(btex $\beta_1$ etex, 1000);
+  gdraw "simN5m2p1" plot(dot);
 
   gdraw "crbN5m2i2"; 
   gdraw "approxcrbN5m2i2" dashed evenly; glabel.llft(btex $\beta_2$ etex, 1000);
@@ -213,5 +213,47 @@ endgraph;
 
 endfig;
 
-end;
+%%%%%%%
+% m = 8 relative error plot
+beginfig(4);
 
+draw begingraph(plotwidth, plotheight) ;
+  setcoords(linear,log);
+  glabel.bot(btex $N$ etex, OUT) shifted(1cm, 1.05cm);
+  glabel.lft(btex relative error etex, OUT) rotated 90 shifted(1.3cm, 1.55cm);
+ 
+  gdraw "relerrorm8i0"; glabel.rt(btex $\beta_0$ etex, 100);
+  gdraw "relerrorm8i1"; glabel.rt(btex $\beta_1$ etex, 100);
+  gdraw "relerrorm8i2"; glabel.rt(btex $\beta_2$ etex, 100);
+  gdraw "relerrorm8i3"; glabel.rt(btex $\beta_3$ etex, 100);
+  gdraw "relerrorm8i4"; glabel.rt(btex $\vdots$ etex, 100);
+  gdraw "relerrorm8i5"; 
+  gdraw "relerrorm8i6";
+  gdraw "relerrorm8i7";
+  gdraw "relerrorm8i8";
+  
+  setrange(whatever,whatever, 110,whatever);
+  % %otick.lft(btex $10$ etex, 10);
+  % %otick.lft(btex $1$ etex, 1);
+  % otick.lft(btex $0.1$ etex, 0.1);
+  % %otick.lft(btex $0.01$ etex, 0.01);
+  % otick.lft(btex $10^{-3}$ etex, 0.001);
+  % %otick.lft(btex $10^{-4}$ etex, 0.0001);
+  % otick.lft(btex $10^{-5}$ etex, "1e-5");
+  % %otick.lft(btex $10^{-6}$ etex, "1e-6");
+  % otick.lft(btex $10^{-7}$ etex, "1e-7");
+  % autogrid(otick.bot,);
+  
+% draw legendone shifted(0.07cm, 0.07cm);
+ 
+endgraph;
+
+endfig;
+
+
+verbatimtex
+%&latex
+  \end{document}
+  etex
+
+end;
