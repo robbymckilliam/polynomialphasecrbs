@@ -8,5 +8,5 @@ Data from the simulations already exists in this repository (the same data as us
 
 https://github.com/robbymckilliam/pubsim.
 
-A build of this library exists in this repository.  The Cramer-Rao bounds were calculated using Mathematica 8.0. See the computer.nb file in the /code directory.
+A build of this library exists in this repository.  The Cramer-Rao bounds were calculated using Mathematica 8.0. See the crbcomputer.nb file in the /code directory.
 
