@@ -46,7 +46,7 @@ Of practical importance is the estimation of the coefficients $\beta = (\beta_0,
 \begin{equation}\label{eq:yndatamodel}
 y_n = s_n(\beta) + w_n
 \end{equation}
-and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Oshea_cpf_2004,Morelande_bayes_unwrapping_2009_tsp,Kitchen_polyphase_unwrapping_1994,Angeby_estimating_2000,Peleg_DPT_1995, Djuric_phase_unwrap_chirp_1990}.  
+and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Angeby_estimating_2000,Oshea_cpf_2004,Morelande_bayes_unwrapping_2009_tsp,Kitchen_polyphase_unwrapping_1994,Peleg_DPT_1995, Djuric_phase_unwrap_chirp_1990}.  
 
 %We remark on our notation.  We use lower case Latin letters for working variables and we use Greek letters for fixed numbers.  Where possible we use the Latin letter and its Greek counterpart when there is a relationship between a working variable and a fixed number.  For example we use $b=(b_0,\dots,b_m)$ as a working variable to represent the polynomial phase coefficients in~\eqref{eq:polyestfunction}, and we use $\beta = (\beta_0, \dots \beta_m)$ to denote the fixed (true) coefficients that we desire to estimate in~\eqref{eq:yndatamodel}.  It is common in the literature to use a subscript, for example $b_0$ to denote the true parameter, but this notation is confusing in our case since $b_0$ is also an element in the vector $b$.
 
@@ -112,7 +112,7 @@ b_0 + b_1 x + \dots + b_m x^m = c_0 p_0(x) + \dots + c_m p_m(x)
 \]
 then the relationship between the vectors $b =  (b_0, \dots, b_m)$ and $c =  (c_0, \dots, c_m)$ is $b = cP$.  Since $P$ is invertible we also have $c = bP^{-1}$.
 
-Put,
+Put
 \[
 r_n(c) = \alpha \exp\left( j \sum_{k = 0}^{m}{c_k p_k(n)}\right)
 \]
@@ -211,8 +211,8 @@ P = \left( \begin{array}{c}
 \]
 and put $\beta = \gamma P$.  The Fisher information matrix corresponding to $\gamma$ is the $m+1$ by $m+1$ matrix $H$ with elements
 \begin{align*}
-H_{ik} &= \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} d_{i}(n) d_{k}(n) \\
-&= \begin{cases}
+H_{ik} &= \frac{\alpha^2}{\sigma^2}\sum_{n=1}^{N} d_{i}(n) d_{k}(n) 
+= \begin{cases}
 0 &  k\neq i \\
  \frac{\alpha^2}{\sigma^2} \binom{2k}{k} \binom{N+k}{2k+1}  & k = i.
 \end{cases}
@@ -265,7 +265,7 @@ s_n(b,a) = a \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
 \]
 where the argument $b=(b_0, \dots, b_m)$ represents the polynomial phase coefficients and the argument $a$ represents the amplitude.  We now consider estimation of $\beta = (\beta_0, \dots, \beta_m)$ and $\alpha$ and $\sigma^2$  from observations $y_n = s_n(\beta,\alpha) + w_n, n = 1,\dots,N$.  The likelihood function is now
 \[
-L(b,a,v) = \frac{1}{(2 \pi v )^N} \exp\left( - \frac{1}{2 v } \sum_{n=1}^N \abs{y_n -  s_n(b,a) }^2 \right).
+L(b,a,v) = \frac{1}{(2 \pi v )^N} \exp\left( - \frac{1}{2 v } \sum_{n=1}^N \abs{y_n -  s_n(b,a) }^2 \right),
 \]
 where the argument $v$ represents the (hypothesised) noise variance.
 
@@ -299,11 +299,7 @@ This is in agreement with Peleg and Porat~\cite{Peleg1991_CRB_PPS_1991}.  Note t
 
 Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} display the results of Monte-Carlo simulation with the maximum likelihood estimator and also the exact Cram\'{e}r-Rao bound and the approximate Cram\'{e}r-Rao bound given by equation (34) in~\cite{Peleg1991_CRB_PPS_1991}.  The simulations use $m=2$ and $N=5,20$ and with $\text{SNR} = \tfrac{\alpha^2}{2\sigma^2}$ in the range \unit[-5]{dB} to \unit[25]{dB}.   The average square error of the maximum likelihood estimator after $10^4$ replications is given by the dots.  This is computed using the approach from~\cite[Sec.~10.1]{McKilliam2010thesis}.  The solid line is the exact Cram\'{e}r-Rao bound and the dashed line is the approximation.  The maximum likelihood estimator achieves the Cram\'{e}r-Rao bound provided that the SNR is large enough, so that the `threshold' effect is avoided.  The approximate bound from~\cite{Peleg1991_CRB_PPS_1991} becomes accurate as $N$ increases.  In the figures the maximum likelihood estimator appears to perform better than the bound when the SNR is small.  This is an artifact of the identifiability conditions that must be imposed on the polynomial phase estimation problem~\cite[Ch.~7]{McKilliam2010thesis}\cite{McKilliam2009IndentifiabliltyAliasingPolyphase}.  The effect is that as SNR decreases, the variance of $\hat{\beta}_k$ converges to that of the uniform distribution on $[-\tfrac{0.5}{k!},\tfrac{0.5}{k!})$.
 
-Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} represent a somewhat artificial situation, since when $m=2$ the $3 \times 3$ matrix $H$ in not poorly conditioned, and can be accurately inverted.  Our explanation for choosing $m=2$ in Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} is that it is not computationally feasible to compute the maximum likelihood estimator for $m>2$.  In practice, the matrix $H$ becomes difficult to invert when $m>5$.  For example, MATLAB warns of numerical imprecision when attempting to invert $H$ when $m>5$.  Figure~\ref{plot:relerror} displays the relative error of the approximate Cram\'{e}r-Rao bound defined as 
-\[
-\text{relative error} = \frac{\abs{\text{CRB}_{\text{approx}} - \text{CRB}}}{\text{CRB}}
-\] 
-for polynomial phase signals of order $m=8$.  The relative error is larger for the lower order coefficients.  The relative error decreases as $N$ increases, but is still significant for the low order coefficients when $N=100$.
+Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} represent a somewhat artificial situation, since when $m=2$ the $3 \times 3$ matrix $H$ in not poorly conditioned, and can be accurately inverted.  Our explanation for choosing $m=2$ in Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} is that it is not computationally feasible to compute the maximum likelihood estimator for $m>2$.  In practice, the matrix $H$ becomes difficult to invert when $m>5$.  For example, MATLAB warns of numerical imprecision when attempting to invert $H$ when $m>5$.  Figure~\ref{plot:relerror} displays the relative error of the approximate Cram\'{e}r-Rao bound for polynomial phase signals of order $m=8$.  The relative error is defined as $(\tilde{F}_{ii}^{-1} - F_{ii}^{-1})/F_{ii}^{-1}$ where $\tilde{F}_{ii}^{-1}$ is the approximate Cram\'{e}r-Rao bound given by equation (34) in~\cite{Peleg1991_CRB_PPS_1991}.  The relative error is larger for the lower order coefficients.  The relative error decreases as $N$ increases, but is still significant for the low order coefficients when $N=100$.
 
  
 \section{Conclusion}

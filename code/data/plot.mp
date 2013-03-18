@@ -232,7 +232,7 @@ draw begingraph(plotwidth, plotheight) ;
   gdraw "relerrorm8i7";
   gdraw "relerrorm8i8";
   
-  setrange(whatever,whatever, 110,whatever);
+  setrange(whatever,whatever,110,whatever);
   % %otick.lft(btex $10$ etex, 10);
   % %otick.lft(btex $1$ etex, 1);
   % otick.lft(btex $0.1$ etex, 0.1);
