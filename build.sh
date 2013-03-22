@@ -1,6 +1,6 @@
-cd code/data
-mpost -interaction=nonstopmode plot.mp 
-cd ../..
+#cd code/data
+#mpost -interaction=nonstopmode plot.mp 
+#cd ../..
 
 pdflatex paper.tex
 bibtex paper.aux
