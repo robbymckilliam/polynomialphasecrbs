@@ -2,9 +2,832 @@
 \documentclass[review]{elsarticle}
 %\documentclass[5p]{elsarticle} 
 
-\usepackage{mathbf-abbrevs}
+\newcommand{\abf}{\mathbf{a}}
+\newcommand{\bbf}{\mathbf{b}}
+\newcommand{\cbf}{\mathbf{c}}
+\newcommand{\dbf}{\mathbf{d}}
+\newcommand{\ebf}{\mathbf{e}}
+\newcommand{\fbf}{\mathbf{f}}
+\newcommand{\gbf}{\mathbf{g}}
+\newcommand{\hbf}{\mathbf{h}}
+\newcommand{\ibf}{\mathbf{i}}
+\newcommand{\jbf}{\mathbf{j}}
+\newcommand{\kbf}{\mathbf{k}}
+\newcommand{\lbf}{\mathbf{l}}
+\newcommand{\mbf}{\mathbf{m}}
+\newcommand{\nbf}{\mathbf{n}}
+\newcommand{\obf}{\mathbf{o}}
+\newcommand{\pbf}{\mathbf{p}}
+\newcommand{\qbf}{\mathbf{q}}
+\newcommand{\rbf}{\mathbf{r}}
+\newcommand{\sbf}{\mathbf{s}}
+\newcommand{\tbf}{\mathbf{t}}
+\newcommand{\ubf}{\mathbf{u}}
+\newcommand{\vbf}{\mathbf{v}}
+\newcommand{\wbf}{\mathbf{w}}
+\newcommand{\xbf}{\mathbf{x}}
+\newcommand{\ybf}{\mathbf{y}}
+\newcommand{\zbf}{\mathbf{z}}
+\newcommand{\Abf}{\mathbf{A}}
+\newcommand{\Bbf}{\mathbf{B}}
+\newcommand{\Cbf}{\mathbf{C}}
+\newcommand{\Dbf}{\mathbf{D}}
+\newcommand{\Ebf}{\mathbf{E}}
+\newcommand{\Fbf}{\mathbf{F}}
+\newcommand{\Gbf}{\mathbf{G}}
+\newcommand{\Hbf}{\mathbf{H}}
+\newcommand{\Ibf}{\mathbf{I}}
+\newcommand{\Jbf}{\mathbf{J}}
+\newcommand{\Kbf}{\mathbf{K}}
+\newcommand{\Lbf}{\mathbf{L}}
+\newcommand{\Mbf}{\mathbf{M}}
+\newcommand{\Nbf}{\mathbf{N}}
+\newcommand{\Obf}{\mathbf{O}}
+\newcommand{\Pbf}{\mathbf{P}}
+\newcommand{\Qbf}{\mathbf{Q}}
+\newcommand{\Rbf}{\mathbf{R}}
+\newcommand{\Sbf}{\mathbf{S}}
+\newcommand{\Tbf}{\mathbf{T}}
+\newcommand{\Ubf}{\mathbf{U}}
+\newcommand{\Vbf}{\mathbf{V}}
+\newcommand{\Wbf}{\mathbf{W}}
+\newcommand{\Xbf}{\mathbf{X}}
+\newcommand{\Ybf}{\mathbf{Y}}
+\newcommand{\Zbf}{\mathbf{Z}}
+\newcommand{\alphabf}{\boldsymbol{\alpha}}
+\newcommand{\betabf}{\boldsymbol{\beta}}
+\newcommand{\gammabf}{\boldsymbol{\gamma}}
+\newcommand{\deltabf}{\boldsymbol{\delta}}
+\newcommand{\epsilonbf}{\boldsymbol{\epsilon}}
+\newcommand{\varepsilonbf}{\boldsymbol{\varepsilon}}
+\newcommand{\zetabf}{\boldsymbol{\zeta}}
+\newcommand{\etabf}{\boldsymbol{\eta}}
+\newcommand{\thetabf}{\boldsymbol{\theta}}
+\newcommand{\varthetabf}{\boldsymbol{\vartheta}}
+\newcommand{\iotabf}{\boldsymbol{\iota}}
+\newcommand{\kappabf}{\boldsymbol{\kappa}}
+\newcommand{\lambdabf}{\boldsymbol{\lambda}}
+\newcommand{\mubf}{\boldsymbol{\mu}}
+\newcommand{\nubf}{\boldsymbol{\nu}}
+\newcommand{\xibf}{\boldsymbol{\xi}}
+\newcommand{\pibf}{\boldsymbol{\pi}}
+\newcommand{\varpibf}{\boldsymbol{\varpi}}
+\newcommand{\rhobf}{\boldsymbol{\rho}}
+\newcommand{\varrhobf}{\boldsymbol{\varrho}}
+\newcommand{\sigmabf}{\boldsymbol{\sigma}}
+\newcommand{\varsigmabf}{\boldsymbol{\varsigma}}
+\newcommand{\taubf}{\boldsymbol{\tau}}
+\newcommand{\upsilonbf}{\boldsymbol{\upsilon}}
+\newcommand{\phibf}{\boldsymbol{\phi}}
+\newcommand{\varphibf}{\boldsymbol{\varphi}}
+\newcommand{\chibf}{\boldsymbol{\chi}}
+\newcommand{\psibf}{\boldsymbol{\psi}}
+\newcommand{\omegabf}{\boldsymbol{\omega}}
+\newcommand{\Gammabf}{\boldsymbol{\Gamma}}
+\newcommand{\Deltabf}{\boldsymbol{\Delta}}
+\newcommand{\Thetabf}{\boldsymbol{\Theta}}
+\newcommand{\Lambdabf}{\boldsymbol{\Lambda}}
+\newcommand{\Xibf}{\boldsymbol{\Xi}}
+\newcommand{\Pibf}{\boldsymbol{\Pi}}
+\newcommand{\Sigmabf}{\boldsymbol{\Sigma}}
+\newcommand{\Upsilonbf}{\boldsymbol{\Upsilon}}
+\newcommand{\Phibf}{\boldsymbol{\Phi}}
+\newcommand{\Psibf}{\boldsymbol{\Psi}}
+\newcommand{\Omegabf}{\boldsymbol{\Omega}}
+\newcommand{\zerobf}{\boldsymbol{0}}
+\newcommand{\onebf}{\boldsymbol{1}}
 
-\input{defs}
+\newcommand{\acal}{\mathcal{a}}
+\newcommand{\bcal}{\mathcal{b}}
+\newcommand{\ccal}{\mathcal{c}}
+\newcommand{\dcal}{\mathcal{d}}
+\newcommand{\ecal}{\mathcal{e}}
+\newcommand{\fcal}{\mathcal{f}}
+\newcommand{\gcal}{\mathcal{g}}
+\newcommand{\hcal}{\mathcal{h}}
+\newcommand{\ical}{\mathcal{i}}
+\newcommand{\jcal}{\mathcal{j}}
+\newcommand{\kcal}{\mathcal{k}}
+\newcommand{\lcal}{\mathcal{l}}
+\newcommand{\mcal}{\mathcal{m}}
+\newcommand{\ncal}{\mathcal{n}}
+\newcommand{\ocal}{\mathcal{o}}
+\newcommand{\pcal}{\mathcal{p}}
+\newcommand{\qcal}{\mathcal{q}}
+\newcommand{\rcal}{\mathcal{r}}
+\newcommand{\scal}{\mathcal{s}}
+\newcommand{\tcal}{\mathcal{t}}
+\newcommand{\ucal}{\mathcal{u}}
+\newcommand{\vcal}{\mathcal{v}}
+\newcommand{\wcal}{\mathcal{w}}
+\newcommand{\xcal}{\mathcal{x}}
+\newcommand{\ycal}{\mathcal{y}}
+\newcommand{\zcal}{\mathcal{z}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Ical}{\mathcal{I}}
+\newcommand{\Jcal}{\mathcal{J}}
+\newcommand{\Kcal}{\mathcal{K}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Tcal}{\mathcal{T}}
+\newcommand{\Ucal}{\mathcal{U}}
+\newcommand{\Vcal}{\mathcal{V}}
+\newcommand{\Wcal}{\mathcal{W}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\Zcal}{\mathcal{Z}}
+
+\newcommand{\abb}{\mathbb{a}}
+\newcommand{\bbb}{\mathbb{b}}
+\newcommand{\cbb}{\mathbb{c}}
+\newcommand{\dbb}{\mathbb{d}}
+\newcommand{\ebb}{\mathbb{e}}
+\newcommand{\fbb}{\mathbb{f}}
+\newcommand{\gbb}{\mathbb{g}}
+\newcommand{\hbb}{\mathbb{h}}
+\newcommand{\ibb}{\mathbb{i}}
+\newcommand{\jbb}{\mathbb{j}}
+\newcommand{\kbb}{\mathbb{k}}
+\newcommand{\lbb}{\mathbb{l}}
+\newcommand{\mbb}{\mathbb{m}}
+\newcommand{\nbb}{\mathbb{n}}
+\newcommand{\obb}{\mathbb{o}}
+\newcommand{\pbb}{\mathbb{p}}
+\newcommand{\qbb}{\mathbb{q}}
+\newcommand{\rbb}{\mathbb{r}}
+\newcommand{\sbb}{\mathbb{s}}
+\newcommand{\tbb}{\mathbb{t}}
+\newcommand{\ubb}{\mathbb{u}}
+\newcommand{\vbb}{\mathbb{v}}
+\newcommand{\wbb}{\mathbb{w}}
+\newcommand{\xbb}{\mathbb{x}}
+\newcommand{\ybb}{\mathbb{y}}
+\newcommand{\zbb}{\mathbb{z}}
+\newcommand{\Abb}{\mathbb{A}}
+\newcommand{\Bblb}{\mathbb{B}}
+\newcommand{\Cbb}{\mathbb{C}}
+\newcommand{\Dbb}{\mathbb{D}}
+\newcommand{\Ebb}{\mathbb{E}}
+\newcommand{\Fbb}{\mathbb{F}}
+\newcommand{\Gbb}{\mathbb{G}}
+\newcommand{\Hbb}{\mathbb{H}}
+\newcommand{\Ibb}{\mathbb{I}}
+\newcommand{\Jbb}{\mathbb{J}}
+\newcommand{\Kbb}{\mathbb{K}}
+\newcommand{\Lbb}{\mathbb{L}}
+\newcommand{\Mbb}{\mathbb{M}}
+\newcommand{\Nbb}{\mathbb{N}}
+\newcommand{\Obb}{\mathbb{O}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\Qbb}{\mathbb{Q}}
+\newcommand{\Rbb}{\mathbb{R}}
+\newcommand{\Sbb}{\mathbb{S}}
+\newcommand{\Tbb}{\mathbb{T}}
+\newcommand{\Ubb}{\mathbb{U}}
+\newcommand{\Vbb}{\mathbb{V}}
+\newcommand{\Wbb}{\mathbb{W}}
+\newcommand{\Xbb}{\mathbb{X}}
+\newcommand{\Ybb}{\mathbb{Y}}
+\newcommand{\Zbb}{\mathbb{Z}}
+
+\newcommand{\mathhbf}[1]{\hat{\mathbf{#1}}}
+\newcommand{\ahbf}{\mathhbf{a}}
+\newcommand{\bhbf}{\mathhbf{b}}
+\newcommand{\chbf}{\mathhbf{c}}
+\newcommand{\dhbf}{\mathhbf{d}}
+\newcommand{\ehbf}{\mathhbf{e}}
+\newcommand{\fhbf}{\mathhbf{f}}
+\newcommand{\ghbf}{\mathhbf{g}}
+\newcommand{\hhbf}{\mathhbf{h}}
+\newcommand{\ihbf}{\mathhbf{i}}
+\newcommand{\jhbf}{\mathhbf{j}}
+\newcommand{\khbf}{\mathhbf{k}}
+\newcommand{\lhbf}{\mathhbf{l}}
+\newcommand{\mhbf}{\mathhbf{m}}
+\newcommand{\nhbf}{\mathhbf{n}}
+\newcommand{\ohbf}{\mathhbf{o}}
+\newcommand{\phbf}{\mathhbf{p}}
+\newcommand{\qhbf}{\mathhbf{q}}
+\newcommand{\rhbf}{\mathhbf{r}}
+\newcommand{\shbf}{\mathhbf{s}}
+\newcommand{\thbf}{\mathhbf{t}}
+\newcommand{\uhbf}{\mathhbf{u}}
+\newcommand{\vhbf}{\mathhbf{v}}
+\newcommand{\whbf}{\mathhbf{w}}
+\newcommand{\xhbf}{\mathhbf{x}}
+\newcommand{\yhbf}{\mathhbf{y}}
+\newcommand{\zhbf}{\mathhbf{z}}
+\newcommand{\Ahbf}{\mathhbf{A}}
+\newcommand{\Bhbf}{\mathhbf{B}}
+\newcommand{\Chbf}{\mathhbf{C}}
+\newcommand{\Dhbf}{\mathhbf{D}}
+\newcommand{\Ehbf}{\mathhbf{E}}
+\newcommand{\Fhbf}{\mathhbf{F}}
+\newcommand{\Ghbf}{\mathhbf{G}}
+\newcommand{\Hhbf}{\mathhbf{H}}
+\newcommand{\Ihbf}{\mathhbf{I}}
+\newcommand{\Jhbf}{\mathhbf{J}}
+\newcommand{\Khbf}{\mathhbf{K}}
+\newcommand{\Lhbf}{\mathhbf{L}}
+\newcommand{\Mhbf}{\mathhbf{M}}
+\newcommand{\Nhbf}{\mathhbf{N}}
+\newcommand{\Ohbf}{\mathhbf{O}}
+\newcommand{\Phbf}{\mathhbf{P}}
+\newcommand{\Qhbf}{\mathhbf{Q}}
+\newcommand{\Rhbf}{\mathhbf{R}}
+\newcommand{\Shbf}{\mathhbf{S}}
+\newcommand{\Thbf}{\mathhbf{T}}
+\newcommand{\Uhbf}{\mathhbf{U}}
+\newcommand{\Vhbf}{\mathhbf{V}}
+\newcommand{\Whbf}{\mathhbf{W}}
+\newcommand{\Xhbf}{\mathhbf{X}}
+\newcommand{\Yhbf}{\mathhbf{Y}}
+\newcommand{\Zhbf}{\mathhbf{Z}} 
+
+\newcommand{\ah}{\hat{a}}
+\newcommand{\bh}{\hat{b}}
+\newcommand{\ch}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\eh}{\hat{e}}
+\newcommand{\fh}{\hat{f}}
+\newcommand{\gh}{\hat{g}}
+\newcommand{\hh}{\hat{h}}
+\newcommand{\ih}{\hat{i}}
+\newcommand{\jh}{\hat{j}}
+\newcommand{\kh}{\hat{k}}
+\newcommand{\lh}{\hat{l}}
+\newcommand{\mh}{\hat{m}}
+\newcommand{\nh}{\hat{n}}
+\newcommand{\oh}{\hat{o}}
+\newcommand{\ph}{\hat{p}}
+\newcommand{\qh}{\hat{q}}
+\newcommand{\rh}{\hat{r}}
+\newcommand{\sh}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uh}{\hat{u}}
+\newcommand{\vh}{\hat{v}}
+\newcommand{\wh}{\hat{w}}
+\newcommand{\xh}{\hat{x}}
+\newcommand{\yh}{\hat{y}}
+\newcommand{\zh}{\hat{z}}
+\newcommand{\Ah}{\hat{A}}
+\newcommand{\Bh}{\hat{B}}
+\newcommand{\Ch}{\hat{C}}
+\newcommand{\Dh}{\hat{D}}
+\newcommand{\Eh}{\hat{E}}
+\newcommand{\Fh}{\hat{F}}
+\newcommand{\Gh}{\hat{G}}
+\newcommand{\Hh}{\hat{H}}
+\newcommand{\Ih}{\hat{I}}
+\newcommand{\Jh}{\hat{J}}
+\newcommand{\Kh}{\hat{K}}
+\newcommand{\Lh}{\hat{L}}
+\newcommand{\Mh}{\hat{M}}
+\newcommand{\Nh}{\hat{N}}
+\newcommand{\Oh}{\hat{O}}
+\newcommand{\Ph}{\hat{P}}
+\newcommand{\Qh}{\hat{Q}}
+\newcommand{\Rh}{\hat{R}}
+\newcommand{\Sh}{\hat{S}}
+\newcommand{\Th}{\hat{T}}
+\newcommand{\Uh}{\hat{U}}
+\newcommand{\Vh}{\hat{V}}
+\newcommand{\Wh}{\hat{W}}
+\newcommand{\Xh}{\hat{X}}
+\newcommand{\Yh}{\hat{Y}}
+\newcommand{\Zh}{\hat{Z}} 
+\newcommand{\thetah}{\hat{\theta}} 
+\newcommand{\phih}{\hat{\phi}} 
+
+
+
+\newcommand{\atbf}{\tilde{\mathbf{a}}}
+\newcommand{\btbf}{\tilde{\mathbf{b}}}
+\newcommand{\ctbf}{\tilde{\mathbf{c}}}
+\newcommand{\dtbf}{\tilde{\mathbf{d}}}
+\newcommand{\etbf}{\tilde{\mathbf{e}}}
+\newcommand{\ftbf}{\tilde{\mathbf{f}}}
+\newcommand{\gtbf}{\tilde{\mathbf{g}}}
+\newcommand{\htbf}{\tilde{\mathbf{h}}}
+\newcommand{\itbf}{\tilde{\mathbf{i}}}
+\newcommand{\jtbf}{\tilde{\mathbf{j}}}
+\newcommand{\ktbf}{\tilde{\mathbf{k}}}
+\newcommand{\ltbf}{\tilde{\mathbf{l}}}
+\newcommand{\mtbf}{\tilde{\mathbf{m}}}
+\newcommand{\ntbf}{\tilde{\mathbf{n}}}
+\newcommand{\otbf}{\tilde{\mathbf{o}}}
+\newcommand{\ptbf}{\tilde{\mathbf{p}}}
+\newcommand{\qtbf}{\tilde{\mathbf{q}}}
+\newcommand{\rtbf}{\tilde{\mathbf{r}}}
+\newcommand{\stbf}{\tilde{\mathbf{s}}}
+\newcommand{\ttbf}{\tilde{\mathbf{t}}}
+\newcommand{\utbf}{\tilde{\mathbf{u}}}
+\newcommand{\vtbf}{\tilde{\mathbf{v}}}
+\newcommand{\wtbf}{\tilde{\mathbf{w}}}
+\newcommand{\xtbf}{\tilde{\mathbf{x}}}
+\newcommand{\ytbf}{\tilde{\mathbf{y}}}
+\newcommand{\ztbf}{\tilde{\mathbf{z}}}
+\newcommand{\Atbf}{\tilde{\mathbf{A}}}
+\newcommand{\Btbf}{\tilde{\mathbf{B}}}
+\newcommand{\Ctbf}{\tilde{\mathbf{C}}}
+\newcommand{\Dtbf}{\tilde{\mathbf{D}}}
+\newcommand{\Etbf}{\tilde{\mathbf{E}}}
+\newcommand{\Ftbf}{\tilde{\mathbf{F}}}
+\newcommand{\Gtbf}{\tilde{\mathbf{G}}}
+\newcommand{\Htbf}{\tilde{\mathbf{H}}}
+\newcommand{\Itbf}{\tilde{\mathbf{I}}}
+\newcommand{\Jtbf}{\tilde{\mathbf{J}}}
+\newcommand{\Ktbf}{\tilde{\mathbf{K}}}
+\newcommand{\Ltbf}{\tilde{\mathbf{L}}}
+\newcommand{\Mtbf}{\tilde{\mathbf{M}}}
+\newcommand{\Ntbf}{\tilde{\mathbf{N}}}
+\newcommand{\Otbf}{\tilde{\mathbf{O}}}
+\newcommand{\Ptbf}{\tilde{\mathbf{P}}}
+\newcommand{\Qtbf}{\tilde{\mathbf{Q}}}
+\newcommand{\Rtbf}{\tilde{\mathbf{R}}}
+\newcommand{\Stbf}{\tilde{\mathbf{S}}}
+\newcommand{\Ttbf}{\tilde{\mathbf{T}}}
+\newcommand{\Utbf}{\tilde{\mathbf{U}}}
+\newcommand{\Vtbf}{\tilde{\mathbf{V}}}
+\newcommand{\Wtbf}{\tilde{\mathbf{W}}}
+\newcommand{\Xtbf}{\tilde{\mathbf{X}}}
+\newcommand{\Ytbf}{\tilde{\mathbf{Y}}}
+\newcommand{\Ztbf}{\tilde{\mathbf{Z}}}
+\newcommand{\alphatbf}{\tilde{\boldsymbol{\alpha}}}
+\newcommand{\betatbf}{\tilde{\boldsymbol{\beta}}}
+\newcommand{\gammatbf}{\tilde{\boldsymbol{\gamma}}}
+\newcommand{\deltatbf}{\tilde{\boldsymbol{\delta}}}
+\newcommand{\epsilontbf}{\tilde{\boldsymbol{\epsilon}}}
+\newcommand{\varepsilontbf}{\tilde{\boldsymbol{\varepsilon}}}
+\newcommand{\zetatbf}{\tilde{\boldsymbol{\zeta}}}
+\newcommand{\etatbf}{\tilde{\boldsymbol{\eta}}}
+\newcommand{\thetatbf}{\tilde{\boldsymbol{\theta}}}
+\newcommand{\varthetatbf}{\tilde{\boldsymbol{\vartheta}}}
+\newcommand{\iotatbf}{\tilde{\boldsymbol{\iota}}}
+\newcommand{\kappatbf}{\tilde{\boldsymbol{\kappa}}}
+\newcommand{\lambdatbf}{\tilde{\boldsymbol{\lambda}}}
+\newcommand{\mutbf}{\tilde{\boldsymbol{\mu}}}
+\newcommand{\nutbf}{\tilde{\boldsymbol{\nu}}}
+\newcommand{\xitbf}{\tilde{\boldsymbol{\xi}}}
+\newcommand{\pitbf}{\tilde{\boldsymbol{\pi}}}
+\newcommand{\varpitbf}{\tilde{\boldsymbol{\varpi}}}
+\newcommand{\rhotbf}{\tilde{\boldsymbol{\rho}}}
+\newcommand{\varrhotbf}{\tilde{\boldsymbol{\varrho}}}
+\newcommand{\sigmatbf}{\tilde{\boldsymbol{\sigma}}}
+\newcommand{\varsigmatbf}{\tilde{\boldsymbol{\varsigma}}}
+\newcommand{\tautbf}{\tilde{\boldsymbol{\tau}}}
+\newcommand{\upsilontbf}{\tilde{\boldsymbol{\upsilon}}}
+\newcommand{\phitbf}{\tilde{\boldsymbol{\phi}}}
+\newcommand{\varphitbf}{\tilde{\boldsymbol{\varphi}}}
+\newcommand{\chitbf}{\tilde{\boldsymbol{\chi}}}
+\newcommand{\psitbf}{\tilde{\boldsymbol{\psi}}}
+\newcommand{\omegatbf}{\tilde{\boldsymbol{\omega}}}
+\newcommand{\Gammatbf}{\tilde{\boldsymbol{\Gamma}}}
+\newcommand{\Deltatbf}{\tilde{\boldsymbol{\Delta}}}
+\newcommand{\Thetatbf}{\tilde{\boldsymbol{\Theta}}}
+\newcommand{\Lambdatbf}{\tilde{\boldsymbol{\Lambda}}}
+\newcommand{\Xitbf}{\tilde{\boldsymbol{\Xi}}}
+\newcommand{\Pitbf}{\tilde{\boldsymbol{\Pi}}}
+\newcommand{\Sigmatbf}{\tilde{\boldsymbol{\Sigma}}}
+\newcommand{\Upsilontbf}{\tilde{\boldsymbol{\Upsilon}}}
+\newcommand{\Phitbf}{\tilde{\boldsymbol{\Phi}}}
+\newcommand{\Psitbf}{\tilde{\boldsymbol{\Psi}}}
+\newcommand{\Omegatbf}{\tilde{\boldsymbol{\Omega}}}
+\newcommand{\zerotbf}{\tilde{\boldsymbol{0}}}
+\newcommand{\onetbf}{\tilde{\boldsymbol{1}}}
+
+
+\newcommand{\at}{\tilde{a}}
+\newcommand{\bt}{\tilde{b}}
+\newcommand{\ct}{\tilde{c}}
+\newcommand{\dt}{\tilde{d}}
+\newcommand{\et}{\tilde{e}}
+\newcommand{\ft}{\tilde{f}}
+\newcommand{\gt}{\tilde{g}}
+\newcommand{\hti}{\tilde{h}}
+\newcommand{\iti}{\tilde{i}}
+\newcommand{\jt}{\tilde{j}}
+\newcommand{\kt}{\tilde{k}}
+\newcommand{\lt}{\tilde{l}}
+\newcommand{\mt}{\tilde{m}}
+\newcommand{\nt}{\tilde{n}}
+\newcommand{\ot}{\tilde{o}}
+\newcommand{\pt}{\tilde{p}}
+\newcommand{\qt}{\tilde{q}}
+\newcommand{\rt}{\tilde{r}}
+\newcommand{\st}{\tilde{s}}
+\newcommand{\tti}{\tilde{t}}
+\newcommand{\ut}{\tilde{u}}
+\newcommand{\vt}{\tilde{v}}
+\newcommand{\wt}{\tilde{w}}
+\newcommand{\xt}{\tilde{x}}
+\newcommand{\yt}{\tilde{y}}
+\newcommand{\zt}{\tilde{z}}
+\newcommand{\At}{\tilde{A}}
+\newcommand{\Bt}{\tilde{B}}
+\newcommand{\Ct}{\tilde{C}}
+\newcommand{\Dt}{\tilde{D}}
+\newcommand{\Et}{\tilde{E}}
+\newcommand{\Ft}{\tilde{F}}
+\newcommand{\Gt}{\tilde{G}}
+\newcommand{\Ht}{\tilde{H}}
+\newcommand{\It}{\tilde{I}}
+\newcommand{\Jt}{\tilde{J}}
+\newcommand{\Kt}{\tilde{K}}
+\newcommand{\Lt}{\tilde{L}}
+\newcommand{\Mt}{\tilde{M}}
+\newcommand{\Nt}{\tilde{N}}
+\newcommand{\Ot}{\tilde{O}}
+\newcommand{\Pt}{\tilde{P}}
+\newcommand{\Qt}{\tilde{Q}}
+\newcommand{\Rt}{\tilde{R}}
+\newcommand{\St}{\tilde{S}}
+\newcommand{\Tt}{\tilde{T}}
+\newcommand{\Ut}{\tilde{U}}
+\newcommand{\Vt}{\tilde{V}}
+\newcommand{\Wt}{\tilde{W}}
+\newcommand{\Xt}{\tilde{X}}
+\newcommand{\Yt}{\tilde{Y}}
+\newcommand{\Zt}{\tilde{Z}} 
+\newcommand{\phit}{\tilde{\phi}} 
+
+\newcommand{\aubbf}{\mathbf{\underline{a}}}
+\newcommand{\bubbf}{\mathbf{\underline{b}}}
+\newcommand{\cubbf}{\mathbf{\underline{c}}}
+\newcommand{\dubbf}{\mathbf{\underline{d}}}
+\newcommand{\eubbf}{\mathbf{\underline{e}}}
+\newcommand{\fubbf}{\mathbf{\underline{f}}}
+\newcommand{\gubbf}{\mathbf{\underline{g}}}
+\newcommand{\hubbf}{\mathbf{\underline{h}}}
+\newcommand{\iubbf}{\mathbf{\underline{i}}}
+\newcommand{\jubbf}{\mathbf{\underline{j}}}
+\newcommand{\kubbf}{\mathbf{\underline{k}}}
+\newcommand{\lubbf}{\mathbf{\underline{l}}}
+\newcommand{\mubbf}{\mathbf{\underline{m}}}
+\newcommand{\nubbf}{\mathbf{\underline{n}}}
+\newcommand{\oubbf}{\mathbf{\underline{o}}}
+\newcommand{\pubbf}{\mathbf{\underline{p}}}
+\newcommand{\qubbf}{\mathbf{\underline{q}}}
+\newcommand{\rubbf}{\mathbf{\underline{r}}}
+\newcommand{\subbf}{\mathbf{\underline{s}}}
+\newcommand{\tubbf}{\mathbf{\underline{t}}}
+\newcommand{\uubbf}{\mathbf{\underline{u}}}
+\newcommand{\vubbf}{\mathbf{\underline{v}}}
+\newcommand{\wubbf}{\mathbf{\underline{w}}}
+\newcommand{\xubbf}{\mathbf{\underline{x}}}
+\newcommand{\yubbf}{\mathbf{\underline{y}}}
+\newcommand{\zubbf}{\mathbf{\underline{z}}}
+\newcommand{\Aubbf}{\mathbf{\underline{A}}}
+\newcommand{\Bubbf}{\mathbf{\underline{B}}}
+\newcommand{\Cubbf}{\mathbf{\underline{C}}}
+\newcommand{\Dubbf}{\mathbf{\underline{D}}}
+\newcommand{\Eubbf}{\mathbf{\underline{E}}}
+\newcommand{\Fubbf}{\mathbf{\underline{F}}}
+\newcommand{\Gubbf}{\mathbf{\underline{G}}}
+\newcommand{\Hubbf}{\mathbf{\underline{H}}}
+\newcommand{\Iubbf}{\mathbf{\underline{I}}}
+\newcommand{\Jubbf}{\mathbf{\underline{J}}}
+\newcommand{\Kubbf}{\mathbf{\underline{K}}}
+\newcommand{\Lubbf}{\mathbf{\underline{L}}}
+\newcommand{\Mubbf}{\mathbf{\underline{M}}}
+\newcommand{\Nubbf}{\mathbf{\underline{N}}}
+\newcommand{\Oubbf}{\mathbf{\underline{O}}}
+\newcommand{\Pubbf}{\mathbf{\underline{P}}}
+\newcommand{\Qubbf}{\mathbf{\underline{Q}}}
+\newcommand{\Rubbf}{\mathbf{\underline{R}}}
+\newcommand{\Subbf}{\mathbf{\underline{S}}}
+\newcommand{\Tubbf}{\mathbf{\underline{T}}}
+\newcommand{\Uubbf}{\mathbf{\underline{U}}}
+\newcommand{\Vubbf}{\mathbf{\underline{V}}}
+\newcommand{\Wubbf}{\mathbf{\underline{W}}}
+\newcommand{\Xubbf}{\mathbf{\underline{X}}}
+\newcommand{\Yubbf}{\mathbf{\underline{Y}}}
+\newcommand{\Zubbf}{\mathbf{\underline{Z}}}
+\newcommand{\alphaubbf}{\underline{\boldsymbol{\alpha}}}
+\newcommand{\betaubbf}{\underline{\boldsymbol{\beta}}}
+\newcommand{\gammaubbf}{\underline{\boldsymbol{\gamma}}}
+\newcommand{\deltaubbf}{\underline{\boldsymbol{\delta}}}
+\newcommand{\epsilonubbf}{\underline{\boldsymbol{\epsilon}}}
+\newcommand{\varepsilonubbf}{\underline{\boldsymbol{\varepsilon}}}
+\newcommand{\zetaubbf}{\underline{\boldsymbol{\zeta}}}
+\newcommand{\etaubbf}{\underline{\boldsymbol{\eta}}}
+\newcommand{\thetaubbf}{\underline{\boldsymbol{\theta}}}
+\newcommand{\varthetaubbf}{\underline{\boldsymbol{\vartheta}}}
+\newcommand{\iotaubbf}{\underline{\boldsymbol{\iota}}}
+\newcommand{\kappaubbf}{\underline{\boldsymbol{\kappa}}}
+\newcommand{\lambdaubbf}{\underline{\boldsymbol{\lambda}}}
+\newcommand{\muubbf}{\underline{\boldsymbol{\mu}}}
+\newcommand{\nuubbf}{\underline{\boldsymbol{\nu}}}
+\newcommand{\xiubbf}{\underline{\boldsymbol{\xi}}}
+\newcommand{\piubbf}{\underline{\boldsymbol{\pi}}}
+\newcommand{\varpiubbf}{\underline{\boldsymbol{\varpi}}}
+\newcommand{\rhoubbf}{\underline{\boldsymbol{\rho}}}
+\newcommand{\varrhoubbf}{\underline{\boldsymbol{\varrho}}}
+\newcommand{\sigmaubbf}{\underline{\boldsymbol{\sigma}}}
+\newcommand{\varsigmaubbf}{\underline{\boldsymbol{\varsigma}}}
+\newcommand{\tauubbf}{\underline{\boldsymbol{\tau}}}
+\newcommand{\upsilonubbf}{\underline{\boldsymbol{\upsilon}}}
+\newcommand{\phiubbf}{\underline{\boldsymbol{\phi}}}
+\newcommand{\varphiubbf}{\underline{\boldsymbol{\varphi}}}
+\newcommand{\chiubbf}{\underline{\boldsymbol{\chi}}}
+\newcommand{\psiubbf}{\underline{\boldsymbol{\psi}}}
+\newcommand{\omegaubbf}{\underline{\boldsymbol{\omega}}}
+\newcommand{\Gammaubbf}{\underline{\boldsymbol{\Gamma}}}
+\newcommand{\Deltaubbf}{\underline{\boldsymbol{\Delta}}}
+\newcommand{\Thetaubbf}{\underline{\boldsymbol{\Theta}}}
+\newcommand{\Lambdaubbf}{\underline{\boldsymbol{\Lambda}}}
+\newcommand{\Xiubbf}{\underline{\boldsymbol{\Xi}}}
+\newcommand{\Piubbf}{\underline{\boldsymbol{\Pi}}}
+\newcommand{\Sigmaubbf}{\underline{\boldsymbol{\Sigma}}}
+\newcommand{\Upsilonubbf}{\underline{\boldsymbol{\Upsilon}}}
+\newcommand{\Phiubbf}{\underline{\boldsymbol{\Phi}}}
+\newcommand{\Psiubbf}{\underline{\boldsymbol{\Psi}}}
+\newcommand{\Omegaubbf}{\underline{\boldsymbol{\Omega}}}
+\newcommand{\zeroubbf}{\underline{\boldsymbol{0}}}
+\newcommand{\oneubbf}{\underline{\boldsymbol{1}}}
+
+
+\newcommand{\aub}{\underline{a}}
+\newcommand{\bub}{\underline{b}}
+\newcommand{\cub}{\underline{c}}
+\newcommand{\dub}{\underline{d}}
+\newcommand{\eub}{\underline{e}}
+\newcommand{\fub}{\underline{f}}
+\newcommand{\gub}{\underline{g}}
+\newcommand{\hub}{\underline{h}}
+\newcommand{\iub}{\underline{i}}
+\newcommand{\jub}{\underline{j}}
+\newcommand{\kub}{\underline{k}}
+\newcommand{\lub}{\underline{l}}
+\newcommand{\mub}{\underline{m}}
+\newcommand{\nub}{\underline{n}}
+\newcommand{\oub}{\underline{o}}
+\newcommand{\pub}{\underline{p}}
+\newcommand{\qub}{\underline{q}}
+\newcommand{\rub}{\underline{r}}
+\newcommand{\sub}{\underline{s}}
+\newcommand{\tub}{\underline{t}}
+\newcommand{\uub}{\underline{u}}
+\newcommand{\vub}{\underline{v}}
+\newcommand{\wub}{\underline{w}}
+\newcommand{\xub}{\underline{x}}
+\newcommand{\yub}{\underline{y}}
+\newcommand{\zub}{\underline{z}}
+\newcommand{\Aub}{\underline{A}}
+\newcommand{\Bub}{\underline{B}}
+\newcommand{\Cub}{\underline{C}}
+\newcommand{\Dub}{\underline{D}}
+\newcommand{\Eub}{\underline{E}}
+\newcommand{\Fub}{\underline{F}}
+\newcommand{\Gub}{\underline{G}}
+\newcommand{\Hub}{\underline{H}}
+\newcommand{\Iub}{\underline{I}}
+\newcommand{\Jub}{\underline{J}}
+\newcommand{\Kub}{\underline{K}}
+\newcommand{\Lub}{\underline{L}}
+\newcommand{\Mub}{\underline{M}}
+\newcommand{\Nub}{\underline{N}}
+\newcommand{\Oub}{\underline{O}}
+\newcommand{\Pub}{\underline{P}}
+\newcommand{\Qub}{\underline{Q}}
+\newcommand{\Rub}{\underline{R}}
+\newcommand{\Sub}{\underline{S}}
+\newcommand{\Tub}{\underline{T}}
+\newcommand{\Uub}{\underline{U}}
+\newcommand{\Vub}{\underline{V}}
+\newcommand{\Wub}{\underline{W}}
+\newcommand{\Xub}{\underline{X}}
+\newcommand{\Yub}{\underline{Y}}
+\newcommand{\Zub}{\underline{Z}}
+\newcommand{\alphaub}{\underline{\alpha}}
+\newcommand{\betaub}{\underline{\beta}}
+\newcommand{\gammaub}{\underline{\gamma}}
+\newcommand{\deltaub}{\underline{\delta}}
+\newcommand{\epsilonub}{\underline{\epsilon}}
+\newcommand{\varepsilonub}{\underline{\varepsilon}}
+\newcommand{\zetaub}{\underline{\zeta}}
+\newcommand{\etaub}{\underline{\eta}}
+\newcommand{\thetaub}{\underline{\theta}}
+\newcommand{\varthetaub}{\underline{\vartheta}}
+\newcommand{\iotaub}{\underline{\iota}}
+\newcommand{\kappaub}{\underline{\kappa}}
+\newcommand{\lambdaub}{\underline{\lambda}}
+\newcommand{\muub}{\underline{\mu}}
+\newcommand{\nuub}{\underline{\nu}}
+\newcommand{\xiub}{\underline{\xi}}
+\newcommand{\piub}{\underline{\pi}}
+\newcommand{\varpiub}{\underline{\varpi}}
+\newcommand{\rhoub}{\underline{\rho}}
+\newcommand{\varrhoub}{\underline{\varrho}}
+\newcommand{\sigmaub}{\underline{\sigma}}
+\newcommand{\varsigmaub}{\underline{\varsigma}}
+\newcommand{\tauub}{\underline{\tau}}
+\newcommand{\upsilonub}{\underline{\upsilon}}
+\newcommand{\phiub}{\underline{\phi}}
+\newcommand{\varphiub}{\underline{\varphi}}
+\newcommand{\chiub}{\underline{\chi}}
+\newcommand{\psiub}{\underline{\psi}}
+\newcommand{\omegaub}{\underline{\omega}}
+\newcommand{\Gammaub}{\underline{\Gamma}}
+\newcommand{\Deltaub}{\underline{\Delta}}
+\newcommand{\Thetaub}{\underline{\Theta}}
+\newcommand{\Lambdaub}{\underline{\Lambda}}
+\newcommand{\Xiub}{\underline{\Xi}}
+\newcommand{\Piub}{\underline{\Pi}}
+\newcommand{\Sigmaub}{\underline{\Sigma}}
+\newcommand{\Upsilonub}{\underline{\Upsilon}}
+\newcommand{\Phiub}{\underline{\Phi}}
+\newcommand{\Psiub}{\underline{\Psi}}
+\newcommand{\Omegaub}{\underline{\Omega}}
+\newcommand{\zeroub}{\underline{0}}
+\newcommand{\oneub}{\underline{1}}
+
+\newcommand{\xbfML}{\xbf_{\text{ML}}}
+\newcommand{\hbfML}{\hbf_{\text{ML}}}
+\newcommand{\XbfML}{\Xbf_{\text{ML}}}
+\newcommand{\HbfML}{\Hbf_{\text{ML}}} 
+
+%\newcommand {\tbf}[1] {\textbf{#1}}
+%\newcommand {\tit}[1] {\textit{#1}}
+%\newcommand {\tmd}[1] {\textmd{#1}}
+%\newcommand {\trm}[1] {\textrm{#1}}
+%\newcommand {\tsc}[1] {\textsc{#1}}
+%\newcommand {\tsf}[1] {\textsf{#1}}
+%\newcommand {\tsl}[1] {\textsl{#1}}
+%\newcommand {\ttt}[1] {\texttt{#1}}
+%\newcommand {\tup}[1] {\textup{#1}}
+%
+%\newcommand {\mbf}[1] {\mathbf{#1}}
+%\newcommand {\mmd}[1] {\mathmd{#1}}
+%\newcommand {\mrm}[1] {\mathrm{#1}}
+%\newcommand {\msc}[1] {\mathsc{#1}}
+%\newcommand {\msf}[1] {\mathsf{#1}}
+%\newcommand {\msl}[1] {\mathsl{#1}}
+%\newcommand {\mtt}[1] {\mathtt{#1}}
+%\newcommand {\mup}[1] {\mathup{#1}}
+
+%some math functions and symbols
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\ints}{{\mathbb Z}}
+\newcommand{\integers}{{\mathbb Z}}
+\newcommand{\sign}[1]{\mathtt{sign}\left( #1 \right)}
+\newcommand{\NP}{\operatorname{NearestPt}}
+\newcommand{\NS}{\operatorname{NearestSet}}
+\newcommand{\bres}{\operatorname{Bres}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\vor}{\operatorname{vor}}
+\newcommand{\coef}{\operatorname{coef}}
+\newcommand{\Int}{\operatorname{Int}}
+
+\newcommand{\selectindicies}{\operatorname{selectindices}}
+\newcommand{\sortindicies}{\operatorname{sortindices}}
+\newcommand{\largest}{\operatorname{largest}}
+\newcommand{\quickpartition}{\operatorname{quickpartition}}
+\newcommand{\quickpartitiontwo}{\operatorname{quickpartition2}}
+
+%some commonly used underlined and
+%hated symbols
+\newcommand{\uY}{\ushort{\mbf{Y}}}
+\newcommand{\ueY}{\ushort{Y}}
+\newcommand{\uy}{\ushort{\mbf{y}}}
+\newcommand{\uey}{\ushort{y}}
+\newcommand{\ux}{\ushort{\mbf{x}}}
+\newcommand{\uex}{\ushort{x}}
+\newcommand{\uhx}{\ushort{\mbf{\hat{x}}}}
+\newcommand{\uehx}{\ushort{\hat{x}}}
+
+\newcommand{\term}{\emph}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\covar}{\operatorname{covar}}
+%\newcommand{\prob}{{\mathbb P}}
+\newcommand{\prob}{\operatorname{Pr}}
+\newcommand{\expect}{{\mathbb E}}
+\newcommand{\dealias}{\operatorname{dealias}}
+\renewcommand{\mid}{\; ; \;}
+
+
+% Brackets
+\newcommand{\br}[1]{{\left( #1 \right)}}
+\newcommand{\sqbr}[1]{{\left[ #1 \right]}}
+\newcommand{\cubr}[1]{{\left\{ #1 \right\}}}
+\newcommand{\abr}[1]{\left< #1 \right>}
+\newcommand{\abs}[1]{{\left| #1 \right|}}
+\newcommand{\floor}[1]{{\left\lfloor #1 \right\rfloor}}
+\newcommand{\ceiling}[1]{{\left\lceil #1 \right\rceil}}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\round}[1]{{\left\lceil #1 \right\rfloor}}
+\newcommand{\magn}[1]{\left\| #1 \right\|}
+\newcommand{\fracpart}[1]{\left\{ #1 \right\}}
+
+
+% Referencing
+\newcommand{\refeqn}[1]{\eqref{#1}}
+\newcommand{\reffig}[1]{Figure~\ref{#1}}
+\newcommand{\reftable}[1]{Table~\ref{#1}}
+\newcommand{\refsec}[1]{Section~\ref{#1}}
+\newcommand{\refappendix}[1]{Appendix~\ref{#1}}
+\newcommand{\refchapter}[1]{Chapter~\ref{#1}}
+
+
+\newcommand {\figwidth} {100mm}
+\newcommand {\Ref}[1] {Reference~\cite{#1}}
+\newcommand {\Sec}[1] {Section~\ref{#1}}
+\newcommand {\App}[1] {Appendix~\ref{#1}}
+\newcommand {\Chap}[1] {Chapter~\ref{#1}}
+\newcommand {\Lem}[1] {Lemma~\ref{#1}}
+\newcommand {\Thm}[1] {Theorem~\ref{#1}}
+\newcommand {\Cor}[1] {Corollary~\ref{#1}}
+\newcommand {\Alg}[1] {Algorithm~\ref{#1}}
+\newcommand {\etal} {\emph{~et~al.}}
+\newcommand {\bul} {$\bullet$ }   % bullet
+\newcommand {\fig}[1] {Figure~\ref{#1}}   % references Figure x
+\newcommand {\imp} {$\Rightarrow$}   % implication symbol (default)
+\newcommand {\impt} {$\Rightarrow$}   % implication symbol (text mode)
+\newcommand {\impm} {\Rightarrow}   % implication symbol (math mode)
+\newcommand {\vect}[1] {\mathbf{#1}} 
+\newcommand {\hvect}[1] {\hat{\mathbf{#1}}}
+\newcommand {\del} {\partial}
+\newcommand {\eqn}[1] {Equation~(\ref{#1})} 
+\newcommand {\tab}[1] {Table~\ref{#1}} % references Table x
+\newcommand {\half} {\frac{1}{2}} 
+\newcommand {\ten}[1] {\times10^{#1}}
+\newcommand {\bra}[2] {\mbox{}_{#2}\langle #1 |}
+\newcommand {\ket}[2] {| #1 \rangle_{#2}}
+\newcommand {\Bra}[2] {\mbox{}_{#2}\left.\left\langle #1 \right.\right|}
+\newcommand {\Ket}[2] {\left.\left| #1 \right.\right\rangle_{#2}}
+\newcommand {\im} {\mathrm{Im}}
+\newcommand {\re} {\mathrm{Re}}
+\newcommand {\braket}[4] {\mbox{}_{#3}\langle #1 | #2 \rangle_{#4}} 
+\newcommand {\trace}[1] {\text{tr}\left(#1\right)}
+\newcommand{\dotprod}[2]{ #1 \cdot #2}
+
+% spell things correctly
+\newenvironment{centre}{\begin{center}}{\end{center}}
+\newenvironment{itemise}{\begin{itemize}}{\end{itemize}}
+
+\usepackage{units}
+	%nice looking units
+		
+\usepackage{booktabs}
+		%creates nice looking tables
+		
+\usepackage{graphicx}% standard graphics package for inclusion of
+		      % images and eps files into LaTeX document
+
+\usepackage{amsmath,amsfonts,amssymb, amsthm, bm} % this is handy for mathematicians and physicists
+			      % see http://www.ams.org/tex/amslatex.html
+
+		 
+\usepackage[vlined, linesnumbered]{algorithm2e}
+	%algorithm writing package
+	
+\usepackage{mathrsfs}
+%fancy math script
+
+\usepackage{ushort}
+%enable good underlining in math mode
+
+%------------------------------------------------------------
+% Theorem like environments
+%
+\newtheorem{theorem}{Theorem}
+%\theoremstyle{plain}
+\newtheorem{acknowledgement}{Acknowledgement}
+%\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+%\numberwithin{equation}{section}
+%--------------------------------------------------------
 
 \journal{Signal Processing}
 
@@ -315,7 +1138,81 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 
 \bibliographystyle{elsarticle-num}
 \small 
-\bibliography{bib}
+%\bibliography{bib}
+
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Angeby_estimating_2000}
+J.~\"Angeby, Estimating signal parameters using the nonlinear instantaneous
+  least squares approach, IEEE Trans. Sig. Process. 48 (2000) 2721--2732.
+
+\bibitem{Levanon_Radar_signals_2004}
+N.~Levanon, E.~Mozeson, Radar Signals, John Wiley \& Sons, 2004.
+
+\bibitem{Oshea_cpf_2004}
+P.~O'Shea, A fast algorithm for estimating the parameters of a quadratic {FM}
+  signal, IEEE Trans. Sig. Process. 52~(2) (2004) 385 -- 393.
+
+\bibitem{Morelande_bayes_unwrapping_2009_tsp}
+M.~Morelande, Parameter estimation of phase-modulated signals using {Bayesian}
+  unwrapping, IEEE Trans. Sig. Process. 57~(11) (2009) 4209--4219.
+
+\bibitem{Kitchen_polyphase_unwrapping_1994}
+J.~Kitchen, A method for estimating the coefficients of a polynomial phase
+  signal, Signal Processing 37~(1) (1994) 463--470.
+
+\bibitem{Peleg_DPT_1995}
+S.~Peleg, B.~Friedlander, The discrete polynomial-phase transform, IEEE Trans.
+  Sig. Process. 43~(8) (1995) 1901--1914.
+
+\bibitem{Djuric_phase_unwrap_chirp_1990}
+P.~M. Djuric, S.~M. Kay, Parameter estimation of chirp signals, IEEE Trans.
+  Acoust. Speech Signal Process. 38~(12) (1990) 2118--2126.
+
+\bibitem{Peleg1991_CRB_PPS_1991}
+S.~Peleg, B.~Porat, The {Cram\'{e}r-Rao} lower bound for signals with constant
+  amplitude and polynomial phase, IEEE Trans. Sig. Process. 39~(3) (1991)
+  749--752.
+
+\bibitem{Kay1993_stat_sig_est_theory}
+S.~M. Kay, Fundamentals of Statistical Signal Processing: Estimation Theory,
+  Prentice-Hall, 1993.
+
+\bibitem{Bjork_num_methods_least_square_1996}
+A.~B\"{j}orck, Numerical Methods for Least Squares Problems, SIAM, 1996.
+
+\bibitem{Chebyshev_discrete_polys1864}
+P.~Chebyshev, Sur l'interpolation, Zapiski Akademii Nauk 1~(4) (1864) 539--560.
+
+\bibitem{Gram_discrete_polys1883}
+J.~P. Gram, {\"{U}ber die Entwicklung reeller Funktionen in Reihen mittels der
+  Methode der kleinsten Quadrate}, Journal f\"{u}r die reine und angewandte
+  Mathematik 94 (1883) 41--73.
+
+\bibitem{Eisinberg2007_discerete_otho_poly_equidist}
+A.~Eisinberg, G.~Fedele, Discrete orthogonal polynomials on equidistant nodes,
+  International Mathematical Forum 2~(21) (2007) 1007--1020.
+
+\bibitem{Abramowitz_Stegen_stirling_numbers_1972}
+M.~Abramowitz, I.~A. Stegun, Stirling Numbers of the First Kind, 9th Edition,
+  Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical
+  Tables, Dover, 1972.
+
+\bibitem{McKilliam2010thesis}
+R.~G. McKilliam, Lattice theory, circular statistics and polynomial phase
+  signals, Ph.D. thesis, University of Queensland, Australia (December 2010).
+
+\bibitem{McKilliam2009IndentifiabliltyAliasingPolyphase}
+R.~G. McKilliam, I.~V.~L. Clarkson, Identifiability and aliasing in
+  polynomial-phase signals, IEEE Trans. Sig. Process. 57~(11) (2009)
+  4554--4557.
+
+\end{thebibliography}
 
 
 
@@ -329,7 +1226,7 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 
  \begin{figure}[p]
     	\centering 
-   		\includegraphics{code/data/plot-1-mps.pdf} 
+   		\includegraphics{fig1.pdf} 
     		\caption{Variance of $\hat{\beta}_0$ versus SNR.} 
     		\label{plot:phase0} 
  \end{figure} 
@@ -338,7 +1235,7 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 
  \begin{figure}[p]
     	\centering 
-   		\includegraphics{code/data/plot-2-mps.pdf} 
+   		\includegraphics{fig2.pdf} 
     		\caption{Variance of $\hat{\beta}_1$ versus SNR.} 
     		\label{plot:phase1} 
  \end{figure} 
@@ -347,7 +1244,7 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 
  \begin{figure}[p]
     	\centering 
-   		\includegraphics{code/data/plot-3-mps.pdf} 
+   		\includegraphics{fig3.pdf} 
     		\caption{Variance of $\hat{\beta}_2$ versus SNR.} 
     		\label{plot:phase2} 
  \end{figure}  
@@ -356,7 +1253,7 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 
  \begin{figure}[p]
     	\centering 
-   		\includegraphics{code/data/plot-4-mps.pdf} 
+   		\includegraphics{fig4.pdf} 
     		\caption{Relative error of approximate Cram\'{e}r-Rao bound from~\cite{Peleg1991_CRB_PPS_1991} when $m=8$.} 
     		\label{plot:relerror} 
  \end{figure}
