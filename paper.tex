@@ -870,12 +870,12 @@ s_n(b) = \alpha \exp\left( j \sum_{k = 0}^{m}{b_k (\Delta n)^k}\right)
 \end{equation}
 where $n \in \ints$, $\alpha$ is the signal amplitude (a positive real number), the argument $b=(b_0, \dots, b_m)\in\reals^{m+1}$ is a vector representing the polynomial coefficients,  and $\Delta$ is the interval between consecutive samples.  We will assume, without loss of generality, that $\Delta = 1$.
 
-Polynomial-phase signals have applications including radar, sonar, biology, and radio communication~\cite{Angeby_estimating_2000,Levanon_Radar_signals_2004}.  %The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995,Moss_2005echolocation,Suga_1975_bats_echolocation}.  
+Polynomial-phase signals have applications including radar, sonar, biology, and radio communication~\cite{Angeby_estimating_2000}.  %The signals are also used to describe the sounds emitted by bats for echo-location \cite{Peleg_DPT_1995,Moss_2005echolocation,Suga_1975_bats_echolocation}.  
 Of practical importance is the estimation of the coefficients $\beta = (\beta_0, \dots \beta_m)\in\reals^{m+1}$ from $N$ consecutive samples $y_1, \dots, y_N$ where 
 \begin{equation}\label{eq:yndatamodel}
 y_n = s_n(\beta) + w_n
 \end{equation}
-and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Angeby_estimating_2000,Oshea_cpf_2004,Morelande_bayes_unwrapping_2009_tsp,Kitchen_polyphase_unwrapping_1994,Peleg_DPT_1995, Djuric_phase_unwrap_chirp_1990}.  
+and $\{w_n, n \in \ints\}$ is a sequence of noise variables.  Many estimators have been studied and implemented~\cite{Angeby_estimating_2000,Oshea_cpf_2004,Morelande_bayes_unwrapping_2009_tsp,Peleg_DPT_1995, Djuric_phase_unwrap_chirp_1990}.  
 
 %We remark on our notation.  We use lower case Latin letters for working variables and we use Greek letters for fixed numbers.  Where possible we use the Latin letter and its Greek counterpart when there is a relationship between a working variable and a fixed number.  For example we use $b=(b_0,\dots,b_m)$ as a working variable to represent the polynomial phase coefficients in~\eqref{eq:polyestfunction}, and we use $\beta = (\beta_0, \dots \beta_m)$ to denote the fixed (true) coefficients that we desire to estimate in~\eqref{eq:yndatamodel}.  It is common in the literature to use a subscript, for example $b_0$ to denote the true parameter, but this notation is confusing in our case since $b_0$ is also an element in the vector $b$.
 
@@ -1132,12 +1132,11 @@ Figures~\ref{plot:phase0},~\ref{plot:phase1}~and~\ref{plot:phase2} represent a s
 
  
 \section{Conclusion}
-
+%\vspace{-0.2cm}
 Using a family of discrete orthogonal polynomials we describe closed form formulae for the Cram\'{e}r-Rao lower bounds for unbiased estimators of polynomial phase signals.
 
-
 \bibliographystyle{elsarticle-num}
-\small 
+\small
 %\bibliography{bib}
 
 \begin{thebibliography}{10}
@@ -1146,67 +1145,67 @@ Using a family of discrete orthogonal polynomials we describe closed form formul
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
-
+%\vspace{-0.2cm}
 \bibitem{Angeby_estimating_2000}
 J.~\"Angeby, Estimating signal parameters using the nonlinear instantaneous
   least squares approach, IEEE Trans. Sig. Process. 48 (2000) 2721--2732.
-
-\bibitem{Levanon_Radar_signals_2004}
-N.~Levanon, E.~Mozeson, Radar Signals, John Wiley \& Sons, 2004.
-
+%\vspace{-0.1cm}
+%\bibitem{Levanon_Radar_signals_2004}
+%N.~Levanon, E.~Mozeson, Radar Signals, John Wiley \& Sons, 2004.
+%\vspace{-0.1cm}
 \bibitem{Oshea_cpf_2004}
 P.~O'Shea, A fast algorithm for estimating the parameters of a quadratic {FM}
   signal, IEEE Trans. Sig. Process. 52~(2) (2004) 385 -- 393.
-
+%\vspace{-0.1cm}
 \bibitem{Morelande_bayes_unwrapping_2009_tsp}
 M.~Morelande, Parameter estimation of phase-modulated signals using {Bayesian}
   unwrapping, IEEE Trans. Sig. Process. 57~(11) (2009) 4209--4219.
-
-\bibitem{Kitchen_polyphase_unwrapping_1994}
-J.~Kitchen, A method for estimating the coefficients of a polynomial phase
-  signal, Signal Processing 37~(1) (1994) 463--470.
-
+%\vspace{-0.1cm}
+%\bibitem{Kitchen_polyphase_unwrapping_1994}
+%J.~Kitchen, A method for estimating the coefficients of a polynomial phase
+%  signal, Signal Processing 37~(1) (1994) 463--470.
+%\vspace{-0.1cm}
 \bibitem{Peleg_DPT_1995}
 S.~Peleg, B.~Friedlander, The discrete polynomial-phase transform, IEEE Trans.
   Sig. Process. 43~(8) (1995) 1901--1914.
-
+%\vspace{-0.1cm}
 \bibitem{Djuric_phase_unwrap_chirp_1990}
 P.~M. Djuric, S.~M. Kay, Parameter estimation of chirp signals, IEEE Trans.
   Acoust. Speech Signal Process. 38~(12) (1990) 2118--2126.
-
+%\vspace{-0.1cm}
 \bibitem{Peleg1991_CRB_PPS_1991}
 S.~Peleg, B.~Porat, The {Cram\'{e}r-Rao} lower bound for signals with constant
   amplitude and polynomial phase, IEEE Trans. Sig. Process. 39~(3) (1991)
   749--752.
-
+%\vspace{-0.1cm}
 \bibitem{Kay1993_stat_sig_est_theory}
 S.~M. Kay, Fundamentals of Statistical Signal Processing: Estimation Theory,
   Prentice-Hall, 1993.
-
+%\vspace{-0.1cm}
 \bibitem{Bjork_num_methods_least_square_1996}
 A.~B\"{j}orck, Numerical Methods for Least Squares Problems, SIAM, 1996.
-
+%\vspace{-0.1cm}
 \bibitem{Chebyshev_discrete_polys1864}
 P.~Chebyshev, Sur l'interpolation, Zapiski Akademii Nauk 1~(4) (1864) 539--560.
-
+%\vspace{-0.1cm}
 \bibitem{Gram_discrete_polys1883}
 J.~P. Gram, {\"{U}ber die Entwicklung reeller Funktionen in Reihen mittels der
   Methode der kleinsten Quadrate}, Journal f\"{u}r die reine und angewandte
   Mathematik 94 (1883) 41--73.
-
+%\vspace{-0.1cm}
 \bibitem{Eisinberg2007_discerete_otho_poly_equidist}
 A.~Eisinberg, G.~Fedele, Discrete orthogonal polynomials on equidistant nodes,
   International Mathematical Forum 2~(21) (2007) 1007--1020.
-
+%\vspace{-0.1cm}
 \bibitem{Abramowitz_Stegen_stirling_numbers_1972}
 M.~Abramowitz, I.~A. Stegun, Stirling Numbers of the First Kind, 9th Edition,
   Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical
   Tables, Dover, 1972.
-
+%\vspace{-0.1cm}
 \bibitem{McKilliam2010thesis}
 R.~G. McKilliam, Lattice theory, circular statistics and polynomial phase
   signals, Ph.D. thesis, University of Queensland, Australia (December 2010).
-
+%\vspace{-0.1cm}
 \bibitem{McKilliam2009IndentifiabliltyAliasingPolyphase}
 R.~G. McKilliam, I.~V.~L. Clarkson, Identifiability and aliasing in
   polynomial-phase signals, IEEE Trans. Sig. Process. 57~(11) (2009)
