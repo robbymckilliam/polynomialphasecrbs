@@ -1,6 +1,6 @@
 Repository for paper
 
-Robby McKilliam and Andre Pollok "On the Cramer-Rao bound for polynomial phase signals".
+Robby McKilliam and Andre Pollok, "On the Cramer-Rao bound for polynomial phase signals", Signal Proceessing, available at http://dx.doi.org/10.1016/j.sigpro.2013.08.007
 
 You can build the plots and tex by running the build.sh bash script.  If you can't run a bash script then open up build.sh to see the required commands.
 

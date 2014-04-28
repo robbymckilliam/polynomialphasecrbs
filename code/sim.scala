@@ -1,6 +1,6 @@
 /**
- * Run simulations for the sparse noisy period estimation problem.
- * Various estimators are available.
+ * Monte-Carlo simulations with the maximum likelihood estimator of
+ * a polynomial phase signal.
  */
 import pubsim.poly.PolynomialPhaseSignal
 import pubsim.poly.MaximumLikelihood
