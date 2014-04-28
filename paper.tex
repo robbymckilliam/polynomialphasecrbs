@@ -246,9 +246,9 @@ P_{ki} = \sum_{s=0}^k{(-1)^{s+k}\binom{s+k}{s}\binom{N-s-1}{N-k-1}q_{si}},
 \end{align*}
 where $q_{si}$ is the $i$th coefficient of the polynomial $q_s$.  Observe that
 \[
-q_{si} = \frac{(-1)^{s-i}}{s!}\stirling{s+1}{k+1}
+q_{si} = \frac{(-1)^{s-i}}{s!}\stirling{s+1}{i+1}
 \]
-where $\stirling{s}{k}$ denotes the unsigned Stirling number of the first kind~\cite{Abramowitz_Stegen_stirling_numbers_1972}.   
+where $\stirling{s}{i}$ denotes the unsigned Stirling number of the first kind~\cite{Abramowitz_Stegen_stirling_numbers_1972}.   
 The inverse matrix $F^{-1} = P^\prime H^{-1} P$ can now be computed in closed form.  Evaluating the diagonal terms gives bounds,
 \begin{align*}
 \var \hat{\beta}_i \geq F_{ii}^{-1} &=  \sum_{s=0}^{m}\sum_{t=0}^{m} P_{si} P_{ti}  H_{st}^{-1} \\

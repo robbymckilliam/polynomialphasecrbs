@@ -1,0 +1,36 @@
+\documentclass{article}
+
+ \usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+% %%%%% set up the bibliography style
+% %\bibliographystyle{plainnat}
+ \bibliographystyle{robbythesis}
+% %\bibliographystyle{anuthesis}
+% %\bibliographystyle{uqthesis}  % uqthesis bibliography style file, made
+% 			      % with makebst
+
+% %%%%% optional packages
+\usepackage[square]{natbib}
+%\usepackage{plain}
+
+%opening
+\title{Errata: Lattice theory, circular statistics and polynomial phase signals}
+\author{R. McKilliam and A. Pollok}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\newcommand{\stirling}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+
+The equation
+\[
+q_{si} = \frac{(-1)^{s-i}}{s!}\stirling{s+1}{k+1}
+\]
+for the coefficients of the integer valued polynomials should read
+\[
+q_{si} = \frac{(-1)^{s-i}}{s!}\stirling{s+1}{i+1}.
+\] 
+
+\end{document}
